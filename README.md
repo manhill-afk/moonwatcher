@@ -16,3 +16,5 @@ Aufs Auge tippen zeigt den Kurs. Live-Kurse von Kraken, bei Ausfall Bitstamp ode
 Dies ist die Browser-Vorschau. Das eigentliche Gerät ist ein rundes 1,28″-Display für den Schreibtisch.
 
 Keine Anlageberatung.
+
+© 2026 Torsten Hillmann. Alle Rechte vorbehalten.
