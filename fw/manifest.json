@@ -1,6 +1,6 @@
 {
-    "version":  "0.2.1",
+    "version":  "0.2.2",
     "boards":  {
-                   "jxl":  "https://manhill-afk.github.io/moonwatcher/fw/moonwatcher-jxl-0.2.1.bin"
+                   "jxl":  "https://manhill-afk.github.io/moonwatcher/fw/moonwatcher-jxl-0.2.2.bin"
                }
 }
