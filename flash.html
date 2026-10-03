@@ -57,6 +57,7 @@
   </section>
 
   <p class="dim"><a href="./" data-t="back">← Back to the Moonwatcher page</a> · © 2026 Torsten Hillmann</p>
+  <p class="dim" data-t="credit">Ideas &amp; design by Hilli (Funktronix). Built with Claude, an AI by Anthropic.</p>
 </main>
 <script>
   const DE = {
@@ -68,7 +69,8 @@
     unsupported: 'Dieser Browser kann keine Geräte flashen. Bitte Chrome oder Edge am Computer verwenden.',
     notallowed: 'Zum Flashen ist eine sichere Verbindung (https) nötig.',
     erase: 'Eine Neuinstallation löscht das Board, auch gespeichertes WLAN und Einstellungen. Updates kommen später von selbst übers WLAN.',
-    back: '← Zurück zur Moonwatcher-Seite'
+    back: '← Zurück zur Moonwatcher-Seite',
+    credit: 'Ideen &amp; Gestaltung: Hilli (Funktronix). Umgesetzt mit Claude, einer KI von Anthropic.'
   };
   const EN = {};
   document.querySelectorAll('[data-t]').forEach(el => EN[el.dataset.t] = el.innerHTML);
