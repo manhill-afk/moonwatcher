@@ -39,9 +39,14 @@
 
   <section>
     <ol>
-      <li data-t="s1">Connect the board to this computer with a USB-C <b>data</b> cable.</li>
-      <li data-t="s2">Choose your board below and click “Install”. Your browser asks which port to use – pick the board.</li>
-      <li data-t="s3">After installing, connect your phone to the Wi-Fi <b>Moonwatcher-Setup</b> and enter your home Wi-Fi.</li>
+      <li data-t="s0">Use <b>Chrome or Edge on a computer</b> (Windows, Mac or Linux). Phones, Firefox and Safari can't install.</li>
+      <li data-t="s1">Connect the board to this computer with a USB-C <b>data</b> cable. (Some cables only charge – if no port shows up in step 4, try another cable.)</li>
+      <li data-t="s2">Choose your board below and click <b>“Install”</b>.</li>
+      <li data-t="s3">A window lists the ports. Pick the board – usually called <b>“USB JTAG/serial debug unit”</b> or <b>“USB Serial Device (COM…)”</b> – and click <b>“Connect”</b>.</li>
+      <li data-t="s4">Tick <b>“Erase device”</b> for a clean start, click <b>“Install”</b> and wait 1–2 minutes until it says <b>“Installation complete”</b>. The eye starts by itself.</li>
+      <li data-t="s5">Wi-Fi: on your phone, join the Wi-Fi <b>Moonwatcher-Setup</b>. A page opens (if not, open <b>192.168.4.1</b> in the browser). Tap <b>“Configure WiFi”</b>, pick your home Wi-Fi, enter the password, <b>Save</b>.<br>
+        Good to know: only <b>2.4 GHz</b> Wi-Fi works (if your network is missing, use the one without “5G”). If your phone asks “No internet – stay connected?”, say <b>yes</b>.</li>
+      <li data-t="s6">After about a minute the eye shows the market. Settings: on the eye, <b>swipe up → Setup → hold</b>, then scan the QR code with your phone.</li>
     </ol>
     <label for="board" data-t="board">Board</label>
     <select id="board">
@@ -62,9 +67,14 @@
 <script>
   const DE = {
     sub: 'Firmware direkt aus dem Browser aufs Board spielen.',
-    s1: 'Board mit einem USB-C-<b>Datenkabel</b> an diesen Computer anschließen.',
-    s2: 'Unten das Board wählen und auf „Installieren“ klicken. Der Browser fragt nach dem Anschluss – das Board auswählen.',
-    s3: 'Danach mit dem Handy ins WLAN <b>Moonwatcher-Setup</b> gehen und das eigene WLAN eintragen.',
+    s0: '<b>Chrome oder Edge am Computer</b> verwenden (Windows, Mac oder Linux). Handys, Firefox und Safari können nicht installieren.',
+    s1: 'Board mit einem USB-C-<b>Datenkabel</b> an diesen Computer anschließen. (Manche Kabel laden nur – erscheint in Schritt 4 kein Anschluss, ein anderes Kabel probieren.)',
+    s2: 'Unten das Board wählen und auf <b>„Installieren“</b> klicken.',
+    s3: 'Ein Fenster zeigt die Anschlüsse. Das Board wählen – meist <b>„USB JTAG/serial debug unit“</b> oder <b>„Serielles USB-Gerät (COM…)“</b> – und auf <b>„Verbinden“</b> klicken.',
+    s4: 'Den Haken bei <b>„Erase device“</b> (Gerät löschen) setzen für einen sauberen Start, auf <b>„Install“</b> klicken und 1–2 Minuten warten, bis <b>„Installation complete“</b> erscheint. Das Auge startet von selbst.',
+    s5: 'WLAN: mit dem Handy ins WLAN <b>Moonwatcher-Setup</b> gehen. Eine Seite öffnet sich (sonst im Browser <b>192.168.4.1</b> eingeben). <b>„Configure WiFi“</b> antippen, das eigene WLAN wählen, Passwort eingeben, <b>Save</b>.<br>' +
+        'Gut zu wissen: Nur <b>2,4-GHz</b>-WLAN geht (fehlt dein Netz, nimm das ohne „5G“ im Namen). Fragt das Handy „Kein Internet – verbunden bleiben?“: <b>Ja</b>.',
+    s6: 'Nach etwa einer Minute zeigt das Auge den Markt. Einstellungen: am Auge <b>nach oben wischen → Setup → halten</b>, dann den QR-Code mit dem Handy scannen.',
     board: 'Board', ws: 'Waveshare ESP32-S3-Touch-LCD-1.28 (noch ungetestet)', install: 'Installieren',
     unsupported: 'Dieser Browser kann keine Geräte flashen. Bitte Chrome oder Edge am Computer verwenden.',
     notallowed: 'Zum Flashen ist eine sichere Verbindung (https) nötig.',
@@ -79,10 +89,13 @@
     document.querySelectorAll('[data-t]').forEach(el => { if (d[el.dataset.t]) el.innerHTML = d[el.dataset.t]; });
     document.documentElement.lang = l;
     document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === l));
-    try { localStorage.setItem('mw-lang', l); } catch (e) {}
   }
-  document.querySelectorAll('.lang button').forEach(b => b.onclick = () => setLang(b.dataset.l));
-  let saved = null; try { saved = localStorage.getItem('mw-lang'); } catch (e) {}
+  // gleiche Sprachwahl wie die Hauptseite: nur eine bewusste Wahl wird gespeichert
+  document.querySelectorAll('.lang button').forEach(b => b.onclick = () => {
+    try { localStorage.setItem('mw-lang-choice', b.dataset.l); } catch (e) {}
+    setLang(b.dataset.l);
+  });
+  let saved = null; try { saved = localStorage.getItem('mw-lang-choice'); } catch (e) {}
   if (saved === 'de') setLang('de');
   document.getElementById('board').onchange = e => document.getElementById('install').setAttribute('manifest', e.target.value);
 </script>
