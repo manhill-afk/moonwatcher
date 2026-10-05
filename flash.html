@@ -39,17 +39,19 @@
 
   <section>
     <ol>
-      <li data-t="s0">Use <b>Chrome or Edge on a computer</b> (Windows, Mac or Linux). Phones, Firefox and Safari can't install.</li>
+      <li data-t="s0">Use <b>Chrome or Edge on a computer</b> (Windows, Mac or Linux). Phones, Firefox and Safari can't install. No Chrome? It's free at google.com/chrome.</li>
       <li data-t="s1">Connect the board to this computer with a USB-C <b>data</b> cable. (Some cables only charge – if no port shows up in step 5, try another cable.)</li>
       <li data-t="sOn"><b>Switch the board on.</b> Some boards start as soon as they get power, others have a power button – on the JXL board, briefly press the <b>middle button on the side</b>. If the board is off, the browser won't find it in step 5.<br>
         Whatever the board shows right now (a maker demo, text, colours) doesn't matter – it gets replaced. During the install the screen may freeze or go dark – that's normal.</li>
-      <li data-t="s2">Choose your board below and click <b>“Install”</b>.</li>
-      <li data-t="s3">A window lists the ports. Pick the board – usually called <b>“USB JTAG/serial debug unit”</b> or <b>“USB Serial Device (COM…)”</b> – and click <b>“Connect”</b>.</li>
-      <li data-t="s4">Tick <b>“Erase device”</b> for a clean start, click <b>“Install”</b> and wait 1–2 minutes until it says <b>“Installation complete”</b>. The eye starts by itself.</li>
-      <li data-t="s5">Wi-Fi: on your phone, join the Wi-Fi <b>Moonwatcher-Setup</b>. A page opens (if not, open <b>192.168.4.1</b> in the browser). Tap <b>“Configure WiFi”</b>, pick your home Wi-Fi, enter the password, <b>Save</b>.<br>
-        Good to know: only <b>2.4 GHz</b> Wi-Fi works (if your network is missing, use the one without “5G”). If your phone asks “No internet – stay connected?”, say <b>yes</b>.</li>
-      <li data-t="s6">After about a minute the eye shows the market. Done! 🎉<br>
-        To open the <b>settings page</b> later (pick your coin, brightness, clock …): on the eye, <b>swipe up</b> to open the menu, <b>tap</b> until it says <b>“Setup”</b>, then <b>hold</b> your finger on it. A QR code appears – scan it with your phone camera, and the settings page opens on your phone.</li>
+      <li data-t="s2">Choose your board in the list below (the model name is printed on the box or on the board) and click <b>“Install”</b> right under it.</li>
+      <li data-t="s3">A window lists the ports. Pick the board – usually called <b>“USB JTAG/serial debug unit”</b>, <b>“USB Serial Device (COM…)”</b> or on a Mac <b>“…usbmodem…”</b> – and click <b>“Connect”</b>.<br>
+        Several entries and not sure? Unplug the board for a moment: the entry that disappears is the board. Plug it back in, switch it on and click “Install” again.</li>
+      <li data-t="s4">In the next window click <b>“Install”</b>, tick <b>“Erase device”</b> for a clean start and confirm. Now wait 1–2 minutes – <b>don't unplug the board</b> – until it says <b>“Installation complete”</b>. You can then close the window. The eye starts by itself (if the screen stays dark, switch the board on again).</li>
+      <li data-t="s5">Wi-Fi: on your phone, open the Wi-Fi settings and join the Wi-Fi <b>Moonwatcher-Setup</b> (no password). A page opens by itself (if not, open <b>192.168.4.1</b> in the phone's browser). Tap <b>“Configure WiFi”</b>, pick your home Wi-Fi, enter its password, tap <b>“Save”</b>.<br>
+        Good to know: only <b>2.4 GHz</b> Wi-Fi works (if your network is missing, use the one without “5G” in its name). If your phone asks “No internet – stay connected?”, say <b>yes</b>.
+        After saving, “Moonwatcher-Setup” disappears and your phone returns to your Wi-Fi – that's normal. If “Moonwatcher-Setup” shows up again after 2 minutes, the password was wrong: just repeat this step.</li>
+      <li data-t="s6">After about a minute the eye opens and turns <b>colourful</b> (green, yellow or red). Grey means it's still loading. Done! 🎉<br>
+        To open the <b>settings page</b> later (pick your coin, brightness, clock …): your phone must be in the <b>same Wi-Fi</b> as the eye (not on mobile data). On the eye, <b>swipe up</b> to open the menu, <b>tap</b> until it says <b>“Setup”</b>, then <b>hold</b> your finger on it. A QR code appears – scan it with your phone camera, and the settings page opens on your phone.</li>
     </ol>
     <label for="board" data-t="board">Board</label>
     <select id="board">
@@ -70,17 +72,19 @@
 <script>
   const DE = {
     sub: 'Firmware direkt aus dem Browser aufs Board spielen.',
-    s0: '<b>Chrome oder Edge am Computer</b> verwenden (Windows, Mac oder Linux). Handys, Firefox und Safari können nicht installieren.',
+    s0: '<b>Chrome oder Edge am Computer</b> verwenden (Windows, Mac oder Linux). Handys, Firefox und Safari können nicht installieren. Kein Chrome? Gibt es kostenlos unter google.com/chrome.',
     s1: 'Board mit einem USB-C-<b>Datenkabel</b> an diesen Computer anschließen. (Manche Kabel laden nur – erscheint in Schritt 5 kein Anschluss, ein anderes Kabel probieren.)',
     sOn: '<b>Board einschalten.</b> Manche Boards starten, sobald sie Strom haben, andere haben einen Einschaltknopf – beim JXL-Board kurz den <b>mittleren Knopf an der Seite</b> drücken. Ist das Board aus, findet der Browser es in Schritt 5 nicht.<br>' +
         'Was das Board gerade anzeigt (eine Hersteller-Demo, Text, Farben), ist egal – es wird ersetzt. Während der Installation kann der Bildschirm einfrieren oder schwarz werden – das ist normal.',
-    s2: 'Unten das Board wählen und auf <b>„Installieren“</b> klicken.',
-    s3: 'Ein Fenster zeigt die Anschlüsse. Das Board wählen – meist <b>„USB JTAG/serial debug unit“</b> oder <b>„Serielles USB-Gerät (COM…)“</b> – und auf <b>„Verbinden“</b> klicken.',
-    s4: 'Den Haken bei <b>„Erase device“</b> (Gerät löschen) setzen für einen sauberen Start, auf <b>„Install“</b> klicken und 1–2 Minuten warten, bis <b>„Installation complete“</b> erscheint. Das Auge startet von selbst.',
-    s5: 'WLAN: mit dem Handy ins WLAN <b>Moonwatcher-Setup</b> gehen. Eine Seite öffnet sich (sonst im Browser <b>192.168.4.1</b> eingeben). <b>„Configure WiFi“</b> antippen, das eigene WLAN wählen, Passwort eingeben, <b>Save</b>.<br>' +
-        'Gut zu wissen: Nur <b>2,4-GHz</b>-WLAN geht (fehlt dein Netz, nimm das ohne „5G“ im Namen). Fragt das Handy „Kein Internet – verbunden bleiben?“: <b>Ja</b>.',
-    s6: 'Nach etwa einer Minute zeigt das Auge den Markt. Fertig! 🎉<br>' +
-        'So öffnest du später die <b>Einstellungsseite</b> (Coin wählen, Helligkeit, Uhr …): am Auge <b>nach oben wischen</b>, dann öffnet sich das Menü. <b>Tippen</b>, bis <b>„Setup“</b> erscheint, dann den Finger darauf <b>halten</b>. Ein QR-Code erscheint – mit der Handykamera scannen, und die Einstellungsseite öffnet sich auf dem Handy.',
+    s2: 'Unten in der Liste dein Board wählen (der Modellname steht auf der Verpackung oder auf dem Board) und direkt darunter auf <b>„Installieren“</b> klicken.',
+    s3: 'Ein Fenster zeigt die Anschlüsse. Das Board wählen – meist <b>„USB JTAG/serial debug unit“</b>, <b>„Serielles USB-Gerät (COM…)“</b> oder am Mac <b>„…usbmodem…“</b> – und auf <b>„Verbinden“</b> klicken.<br>' +
+        'Mehrere Einträge und unsicher? Das Board kurz abstecken: Der Eintrag, der verschwindet, ist das Board. Wieder anstecken, einschalten und nochmal „Installieren“ klicken.',
+    s4: 'Im nächsten Fenster auf <b>„Install“</b> klicken, den Haken bei <b>„Erase device“</b> (Gerät löschen) setzen für einen sauberen Start und bestätigen. Jetzt 1–2 Minuten warten – <b>das Board nicht abstecken</b> –, bis <b>„Installation complete“</b> erscheint. Danach kannst du das Fenster schließen. Das Auge startet von selbst (bleibt der Bildschirm dunkel, das Board nochmal einschalten).',
+    s5: 'WLAN: am Handy die WLAN-Einstellungen öffnen und mit dem WLAN <b>Moonwatcher-Setup</b> verbinden (ohne Passwort). Eine Seite öffnet sich von selbst (sonst im Handy-Browser <b>192.168.4.1</b> eingeben). <b>„Configure WiFi“</b> antippen, das eigene WLAN wählen, dessen Passwort eingeben, <b>„Save“</b> antippen.<br>' +
+        'Gut zu wissen: Nur <b>2,4-GHz</b>-WLAN geht (fehlt dein Netz, nimm das ohne „5G“ im Namen). Fragt das Handy „Kein Internet – verbunden bleiben?“: <b>Ja</b>. ' +
+        'Nach dem Speichern verschwindet „Moonwatcher-Setup“ und das Handy geht zurück in dein WLAN – das ist normal. Taucht „Moonwatcher-Setup“ nach 2 Minuten wieder auf, war das Passwort falsch: diesen Schritt einfach wiederholen.',
+    s6: 'Nach etwa einer Minute öffnet sich das Auge und wird <b>farbig</b> (grün, gelb oder rot). Grau heißt: lädt noch. Fertig! 🎉<br>' +
+        'So öffnest du später die <b>Einstellungsseite</b> (Coin wählen, Helligkeit, Uhr …): Dein Handy muss im <b>selben WLAN</b> sein wie das Auge (nicht im Mobilfunk). Am Auge <b>nach oben wischen</b>, dann öffnet sich das Menü. <b>Tippen</b>, bis <b>„Setup“</b> erscheint, dann den Finger darauf <b>halten</b>. Ein QR-Code erscheint – mit der Handykamera scannen, und die Einstellungsseite öffnet sich auf dem Handy.',
     board: 'Board', ws: 'Waveshare ESP32-S3-Touch-LCD-1.28 (noch ungetestet)', install: 'Installieren',
     unsupported: 'Dieser Browser kann keine Geräte flashen. Bitte Chrome oder Edge am Computer verwenden.',
     notallowed: 'Zum Flashen ist eine sichere Verbindung (https) nötig.',
