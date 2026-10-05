@@ -40,7 +40,9 @@
   <section>
     <ol>
       <li data-t="s0">Use <b>Chrome or Edge on a computer</b> (Windows, Mac or Linux). Phones, Firefox and Safari can't install.</li>
-      <li data-t="s1">Connect the board to this computer with a USB-C <b>data</b> cable. (Some cables only charge – if no port shows up in step 4, try another cable.)</li>
+      <li data-t="s1">Connect the board to this computer with a USB-C <b>data</b> cable. (Some cables only charge – if no port shows up in step 5, try another cable.)</li>
+      <li data-t="sOn"><b>Switch the board on.</b> Some boards start as soon as they get power, others have a power button – on the JXL board, briefly press the <b>middle button on the side</b>. If the board is off, the browser won't find it in step 5.<br>
+        Whatever the board shows right now (a maker demo, text, colours) doesn't matter – it gets replaced. During the install the screen may freeze or go dark – that's normal.</li>
       <li data-t="s2">Choose your board below and click <b>“Install”</b>.</li>
       <li data-t="s3">A window lists the ports. Pick the board – usually called <b>“USB JTAG/serial debug unit”</b> or <b>“USB Serial Device (COM…)”</b> – and click <b>“Connect”</b>.</li>
       <li data-t="s4">Tick <b>“Erase device”</b> for a clean start, click <b>“Install”</b> and wait 1–2 minutes until it says <b>“Installation complete”</b>. The eye starts by itself.</li>
@@ -69,7 +71,9 @@
   const DE = {
     sub: 'Firmware direkt aus dem Browser aufs Board spielen.',
     s0: '<b>Chrome oder Edge am Computer</b> verwenden (Windows, Mac oder Linux). Handys, Firefox und Safari können nicht installieren.',
-    s1: 'Board mit einem USB-C-<b>Datenkabel</b> an diesen Computer anschließen. (Manche Kabel laden nur – erscheint in Schritt 4 kein Anschluss, ein anderes Kabel probieren.)',
+    s1: 'Board mit einem USB-C-<b>Datenkabel</b> an diesen Computer anschließen. (Manche Kabel laden nur – erscheint in Schritt 5 kein Anschluss, ein anderes Kabel probieren.)',
+    sOn: '<b>Board einschalten.</b> Manche Boards starten, sobald sie Strom haben, andere haben einen Einschaltknopf – beim JXL-Board kurz den <b>mittleren Knopf an der Seite</b> drücken. Ist das Board aus, findet der Browser es in Schritt 5 nicht.<br>' +
+        'Was das Board gerade anzeigt (eine Hersteller-Demo, Text, Farben), ist egal – es wird ersetzt. Während der Installation kann der Bildschirm einfrieren oder schwarz werden – das ist normal.',
     s2: 'Unten das Board wählen und auf <b>„Installieren“</b> klicken.',
     s3: 'Ein Fenster zeigt die Anschlüsse. Das Board wählen – meist <b>„USB JTAG/serial debug unit“</b> oder <b>„Serielles USB-Gerät (COM…)“</b> – und auf <b>„Verbinden“</b> klicken.',
     s4: 'Den Haken bei <b>„Erase device“</b> (Gerät löschen) setzen für einen sauberen Start, auf <b>„Install“</b> klicken und 1–2 Minuten warten, bis <b>„Installation complete“</b> erscheint. Das Auge startet von selbst.',
