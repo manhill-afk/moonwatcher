@@ -30,6 +30,7 @@
   .warn { color:#ff8a78; font-size:14px; }
   a { color:var(--gold); }
 </style>
+<script>window.goatcounter = { path: function () { return location.pathname; } };</script>
 <script data-goatcounter="https://moonwatcher.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -39,6 +40,13 @@
     <div class="lang"><button data-l="en" aria-pressed="true">EN</button><button data-l="de" aria-pressed="false">DE</button></div>
   </div>
   <p class="dim" data-t="sub">Install the firmware on your board, straight from the browser.</p>
+
+  <!-- Richtiges Board kaufen (Hilli 09.10.2026): fast gleich aussehende Varianten (RP2040, ohne Touch) gehen nicht -->
+  <section>
+    <p data-t="buy"><span class="k">You need exactly this board: Waveshare ESP32-S3-Touch-LCD-1.28</span>.
+      Check the exact name: it must say <b>ESP32-S3</b> and <b>Touch</b>. Not the RP2040 version, not the version without touch – they look almost the same but won't work.</p>
+    <p class="dim" data-t="buywhere">Buy it from the official <a href="https://www.waveshare.com/esp32-s3-touch-lcd-1.28.htm" rel="noopener" data-goatcounter-click="buy-waveshare">Waveshare shop</a> or a trusted electronics store – avoid marketplace listings, they are often mislabelled.</p>
+  </section>
 
   <section>
     <ol>
@@ -59,7 +67,7 @@
     <label for="board" data-t="board">Your board – please check!</label>
     <select id="board">
       <option value="fw/flash-ws128.json" data-t="ws">Waveshare ESP32-S3-Touch-LCD-1.28 (recommended)</option>
-      <option value="fw/flash-jxl.json">JXL ESP32S3-128I80T (1.28″, parallel)</option>
+      <option value="fw/flash-jxl.json" data-t="jxl">JXL ESP32S3-128I80T – test board only, not Waveshare</option>
     </select>
     <esp-web-install-button id="install" manifest="fw/flash-ws128.json">
       <button slot="activate" data-t="install">Install</button>
@@ -71,10 +79,14 @@
 
   <p class="dim"><a href="./" data-t="back">← Back to the Moonwatcher page</a> · © 2026 Torsten Hillmann</p>
   <p class="dim" data-t="credit">Ideas &amp; design: Torsten Hillmann (<a href="https://x.com/manhill" rel="noopener">@manhill</a>) · Funktronix. Built with Claude, an AI by Anthropic.</p>
+  <p class="dim" data-t="thanks">Testing &amp; prototype case: Bix</p>
 </main>
 <script>
   const DE = {
     sub: 'Firmware direkt aus dem Browser aufs Board spielen.',
+    buy: '<span class="k">Du brauchst genau dieses Board: Waveshare ESP32-S3-Touch-LCD-1.28</span>. ' +
+        'Auf den genauen Namen achten: Es muss <b>ESP32-S3</b> und <b>Touch</b> darin stehen. Nicht die RP2040-Version, nicht die ohne Touch – sie sehen fast gleich aus, funktionieren aber nicht.',
+    buywhere: 'Kaufen im offiziellen <a href="https://www.waveshare.com/esp32-s3-touch-lcd-1.28.htm" rel="noopener" data-goatcounter-click="buy-waveshare">Waveshare-Shop</a> oder bei einem seriösen Elektronikhändler – lieber keine Marktplatz-Angebote, die sind oft falsch beschriftet.',
     s0: '<span class="k">Chrome oder Edge am Computer verwenden</span> (Windows, Mac oder Linux). Handys, Firefox und Safari können nicht installieren. Kein Chrome? Gibt es kostenlos unter google.com/chrome.',
     s1: '<span class="k">Board mit einem USB-C-<b>Datenkabel</b> an diesen Computer anschließen.</span> (Manche Kabel laden nur – erscheint in Schritt 5 kein Anschluss, ein anderes Kabel probieren.)',
     sOn: '<span class="k">Board einschalten.</span> Das <b>Waveshare</b>-Board startet, sobald es Strom hat. Beim JXL-Board kurz den <b>mittleren Knopf an der Seite</b> drücken. Ist das Board aus, findet der Browser es in Schritt 5 nicht.<br>' +
@@ -88,12 +100,13 @@
         'Nach dem Speichern verschwindet „Moonwatcher-Setup“ und das Handy geht zurück in dein WLAN – das ist normal. Taucht „Moonwatcher-Setup“ nach 2 Minuten wieder auf, war das Passwort falsch: diesen Schritt einfach wiederholen.',
     s6: '<span class="k">Nach etwa einer Minute öffnet sich das Auge und wird farbig</span> (grün, gelb oder rot). Grau heißt: lädt noch. <span class="k">Fertig! 🎉</span><br>' +
         'So öffnest du später die <b>Einstellungsseite</b> (Coin wählen, Helligkeit, Uhr …): Dein Handy muss im <b>selben WLAN</b> sein wie das Auge (nicht im Mobilfunk). Am Auge <b>nach oben wischen</b> (weiter hochwischen), bis <b>„Setup“</b> erscheint, dann den Finger darauf <b>halten</b>. Ein QR-Code erscheint – mit der Handykamera scannen und den eingeblendeten <b>Link antippen</b> („Öffnen“, „Im Browser öffnen“); die Einstellungsseite öffnet sich auf dem Handy.',
-    board: 'Dein Board – bitte prüfen!', ws: 'Waveshare ESP32-S3-Touch-LCD-1.28 (empfohlen)', install: 'Installieren',
+    board: 'Dein Board – bitte prüfen!', ws: 'Waveshare ESP32-S3-Touch-LCD-1.28 (empfohlen)', jxl: 'JXL ESP32S3-128I80T – nur Testboard, nicht Waveshare', install: 'Installieren',
     unsupported: 'Dieser Browser kann keine Geräte flashen. Bitte Chrome oder Edge am Computer verwenden.',
     notallowed: 'Zum Flashen ist eine sichere Verbindung (https) nötig.',
     erase: 'Eine Neuinstallation löscht das Board, auch gespeichertes WLAN und Einstellungen. Updates kommen später von selbst übers WLAN.',
     back: '← Zurück zur Moonwatcher-Seite',
-    credit: 'Ideen &amp; Gestaltung: Torsten Hillmann (<a href="https://x.com/manhill" rel="noopener">@manhill</a>) · Funktronix. Umgesetzt mit Claude, einer KI von Anthropic.'
+    credit: 'Ideen &amp; Gestaltung: Torsten Hillmann (<a href="https://x.com/manhill" rel="noopener">@manhill</a>) · Funktronix. Umgesetzt mit Claude, einer KI von Anthropic.',
+    thanks: 'Tests &amp; Prototyp-Gehäuse: Bix'
   };
   const EN = {};
   document.querySelectorAll('[data-t]').forEach(el => EN[el.dataset.t] = el.innerHTML);
