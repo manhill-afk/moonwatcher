@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moonwatcher · Build your own</title>
+<meta name="description" content="Build your own Moonwatcher in about 15 minutes: buy one board, install the firmware from the browser, plug in USB-C. No soldering, no 3D printer.">
+<link rel="icon" href="icon-192.png">
+<style>
+  :root { color-scheme: dark; --night:#0a0c10; --panel:#12151b; --edge:#252a33; --ink:#e9e5da; --dim:#8b909a; --gold:#e7b34f; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--night); color:var(--ink); font:16px/1.5 system-ui,"Segoe UI",sans-serif; padding:24px 16px 40px; }
+  main { max-width:560px; margin:0 auto; display:grid; gap:18px; }
+  .top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  h1 { font:700 30px/1.1 "Trebuchet MS",system-ui,sans-serif; margin:0; letter-spacing:-.01em; }
+  h1 span { color:var(--gold); }
+  h2 { font:700 19px/1.2 "Trebuchet MS",system-ui,sans-serif; margin:0; }
+  .lang { display:inline-flex; border:1px solid var(--edge); border-radius:99px; overflow:hidden; }
+  .lang button { border:0; background:transparent; color:var(--dim); padding:6px 11px; font:600 12px ui-monospace,Consolas,monospace; cursor:pointer; }
+  .lang button[aria-pressed="true"] { background:var(--gold); color:var(--night); }
+  p { margin:0; } .dim { color:var(--dim); font-size:14px; }
+  section { background:var(--panel); border:1px solid var(--edge); border-radius:12px; padding:16px; display:grid; gap:12px; }
+  ol, ul { margin:0; padding-left:20px; display:grid; gap:6px; }
+  table { width:100%; border-collapse:collapse; font-size:14px; }
+  th, td { text-align:left; vertical-align:top; padding:7px 8px 7px 0; border-top:1px solid var(--edge); }
+  th { color:var(--dim); font-weight:600; border-top:0; }
+  .k { color:var(--gold); font-weight:600; }   /* das Wichtigste: wer nur ueberfliegt, liest das */
+  .go { display:block; text-align:center; padding:13px; border-radius:10px; background:var(--gold); color:var(--night); font-weight:700; text-decoration:none; }
+  a { color:var(--gold); }
+</style>
+<script>window.goatcounter = { path: function () { return location.pathname; } };</script>
+<script data-goatcounter="https://moonwatcher.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<main>
+  <div class="top">
+    <h1>Moon<span>watcher</span></h1>
+    <div class="lang"><button data-l="en" aria-pressed="true">EN</button><button data-l="de" aria-pressed="false">DE</button></div>
+  </div>
+  <p data-t="lead"><span class="k">Build your own Moonwatcher in about 15 minutes:</span> buy one board with a metal case, install the firmware from your browser, plug in USB-C – done. No soldering, no 3D printer, no coding.</p>
+  <p class="dim" data-t="what">You end up with a round eye on your desk that shows the crypto market: colour = trend, pupil = volatility, gaze = trading volume, sparkle = distance from the high. The firmware is free and updates itself over Wi-Fi.</p>
+  <p class="dim" data-t="ready">Rather not build it yourself? A ready-made Moonwatcher is in the works. If you'd like one, drop me a line at <a href="mailto:moonwatcher@funktronix.de?subject=Moonwatcher" data-goatcounter-click="build-mail">moonwatcher@funktronix.de</a> and I'll get back to you when it's ready.</p>
+
+  <!-- Selbstbau-Weg (Hilli 10.10.2026): -B mit Waveshare-Metallgehaeuse kaufen, im Browser flashen, USB-C rein, fertig -->
+  <section>
+    <h2 data-t="buy-h">1. Buy the board</h2>
+    <p data-t="buy">You need exactly one part: the <span class="k">Waveshare ESP32-S3-Touch-LCD-1.28-B</span> – the version <b>with the metal case</b>. Shops often call it “ESP32-S3 Development Board with 1.28inch Round Touch LCD, Accelerometer Gyroscope Sensor”.</p>
+    <p class="dim" data-t="buywhere">Buy it e.g. at <a href="https://eckstein-shop.de/WaveShare-ESP32-S3-Development-Board-with-128inch-Round-Touch-LCD-CNC-Metal-Case-Accelerometer-Gyroscope-Sensor" rel="noopener" data-goatcounter-click="buy-eckstein-build">Eckstein</a> (Germany, exactly this version with metal case), from the official <a href="https://www.waveshare.com/esp32-s3-touch-lcd-1.28.htm" rel="noopener" data-goatcounter-click="buy-waveshare-build">Waveshare shop</a> or a trusted electronics store – avoid marketplace listings, they are often mislabelled.</p>
+    <p data-t="twins"><b>Watch out for look-alikes</b> – these look almost the same but won't work:</p>
+    <table>
+      <tr><th data-t="th-board">Board</th><th data-t="th-why">Problem</th></tr>
+      <tr><td>RP2040-LCD-1.28</td><td data-t="tw1">no Wi-Fi – doesn't work at all</td></tr>
+      <tr><td data-t="tw2n">ESP32-S3-LCD-1.28 (without “Touch”)</td><td data-t="tw2">no tapping, no menu</td></tr>
+      <tr><td data-t="tw3n">cheap ESP32-C3 round boards</td><td data-t="tw3">too little memory, no motion sensor</td></tr>
+    </table>
+    <p class="dim" data-t="metal">The metal case weakens Wi-Fi a little: don't put the eye too far from your router.</p>
+  </section>
+
+  <section>
+    <h2 data-t="need-h">2. What else you need</h2>
+    <p data-t="need">No tools – just things most homes already have:</p>
+    <ul>
+      <li data-t="n1">a computer (Windows, Mac or Linux) with <b>Chrome or Edge</b> – phones, Firefox and Safari can't install</li>
+      <li data-t="n2">a USB-C <b>data</b> cable (some cables only charge)</li>
+      <li data-t="n3"><b>2.4 GHz Wi-Fi</b> with internet (5 GHz networks don't work)</li>
+      <li data-t="n4">a phone to set up Wi-Fi</li>
+      <li data-t="n5">later, a normal USB power adapter, e.g. a phone charger</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 data-t="asm-h">3. Assembly</h2>
+    <p data-t="asm">There's nothing to wire: the -B board comes ready-assembled in its metal case, with the USB-C socket reachable from outside.</p>
+    <ol>
+      <li data-t="a2">Unpack the board, plug in the USB-C data cable, other end into your computer.</li>
+      <li data-t="a3">The board starts as soon as it gets power – there's no power button. Whatever it shows now (a maker demo) doesn't matter; it gets replaced in a moment.</li>
+    </ol>
+    <p class="dim" data-t="case">Want a stand or a different look? A 3D-printable Moonwatcher case is in the works – the link follows here once it's finished.</p>
+  </section>
+
+  <!-- Schritte stehen NUR auf flash.html (eine Quelle, sonst laufen die Seiten auseinander) -->
+  <section>
+    <h2 data-t="fw-h">4. Install and set up</h2>
+    <p data-t="fw">The install page walks you through the rest step by step: put the firmware on the board straight from the browser, then connect the eye to your Wi-Fi with your phone. Takes about 10 minutes.</p>
+    <a class="go" href="flash.html" data-t="fw-go" data-goatcounter-click="build-to-flash">Open the install page</a>
+    <p class="dim" data-t="upd">After that, nothing to do: updates arrive over Wi-Fi by themselves.</p>
+  </section>
+
+  <p class="dim"><a href="./" data-t="back">← Back to the Moonwatcher page</a> · © 2026 Torsten Hillmann</p>
+  <p class="dim" data-t="credit">Ideas &amp; design: Torsten Hillmann (<a href="https://x.com/manhill" rel="noopener">@manhill</a>) · Funktronix. Built with Claude, an AI by Anthropic.</p>
+  <p class="dim" data-t="thanks">Testing &amp; prototype case: Bix</p>
+</main>
+<script>
+  const DE = {
+    lead: '<span class="k">Dein eigener Moonwatcher in rund 15 Minuten:</span> ein Board mit Metallgehäuse kaufen, im Browser die Firmware aufspielen, USB-C rein – fertig. Kein Löten, kein 3D-Drucker, kein Programmieren.',
+    what: 'Am Ende steht ein rundes Auge auf deinem Tisch, das den Kryptomarkt zeigt: Farbe = Trend, Pupille = Schwankung, Blick = Handelsvolumen, Funkeln = Abstand zum Hoch. Die Firmware ist kostenlos und aktualisiert sich selbst übers WLAN.',
+    ready: 'Lieber nicht selbst bauen? Ein fertiger Moonwatcher ist in Arbeit. Wenn du einen möchtest, schreib mir kurz an <a href="mailto:moonwatcher@funktronix.de?subject=Moonwatcher" data-goatcounter-click="build-mail">moonwatcher@funktronix.de</a>, dann melde ich mich, sobald es so weit ist.',
+    'buy-h': '1. Board kaufen',
+    buy: 'Du brauchst genau ein Teil: das <span class="k">Waveshare ESP32-S3-Touch-LCD-1.28-B</span> – die Variante <b>mit Metallgehäuse</b>. Shops nennen es oft „ESP32-S3 Development Board with 1.28inch Round Touch LCD, Accelerometer Gyroscope Sensor“.',
+    buywhere: 'Kaufen z. B. bei <a href="https://eckstein-shop.de/WaveShare-ESP32-S3-Development-Board-with-128inch-Round-Touch-LCD-CNC-Metal-Case-Accelerometer-Gyroscope-Sensor" rel="noopener" data-goatcounter-click="buy-eckstein-build">Eckstein</a> (genau diese Version mit Metallgehäuse), im offiziellen <a href="https://www.waveshare.com/esp32-s3-touch-lcd-1.28.htm" rel="noopener" data-goatcounter-click="buy-waveshare-build">Waveshare-Shop</a> oder bei einem seriösen Elektronikhändler – lieber keine Marktplatz-Angebote, die sind oft falsch beschriftet.',
+    twins: '<b>Vorsicht, Doppelgänger</b> – diese sehen fast gleich aus, gehen aber nicht:',
+    'th-board': 'Board', 'th-why': 'Problem',
+    tw1: 'kein WLAN – geht gar nicht',
+    tw2n: 'ESP32-S3-LCD-1.28 (ohne „Touch“)', tw2: 'kein Antippen, kein Menü',
+    tw3n: 'günstige ESP32-C3-Rundboards', tw3: 'zu wenig Speicher, kein Lagesensor',
+    metal: 'Das Metallgehäuse schwächt das WLAN etwas: Stell das Auge nicht zu weit vom Router weg.',
+    'need-h': '2. Was du sonst brauchst',
+    need: 'Kein Werkzeug – nur Dinge, die meist schon im Haus sind:',
+    n1: 'ein Computer (Windows, Mac oder Linux) mit <b>Chrome oder Edge</b> – Handys, Firefox und Safari können nicht installieren',
+    n2: 'ein USB-C-<b>Datenkabel</b> (manche Kabel laden nur)',
+    n3: '<b>2,4-GHz-WLAN</b> mit Internet (5-GHz-Netze gehen nicht)',
+    n4: 'ein Handy für die WLAN-Einrichtung',
+    n5: 'später ein normales USB-Netzteil, z. B. ein Handy-Ladegerät',
+    'asm-h': '3. Zusammenbau',
+    asm: 'Es gibt nichts zu verdrahten: Das -B-Board kommt fertig im Metallgehäuse, die USB-C-Buchse ist von außen erreichbar.',
+    a2: 'Board auspacken, USB-C-Datenkabel einstecken, anderes Ende an den Computer.',
+    a3: 'Das Board startet, sobald es Strom hat – es hat keinen Einschaltknopf. Was es jetzt zeigt (eine Hersteller-Demo), ist egal und wird gleich ersetzt.',
+    case: 'Lieber mit Ständer oder in anderer Form? Ein druckbares Moonwatcher-Gehäuse ist in Arbeit – der Link kommt hierher, sobald es fertig ist.',
+    'fw-h': '4. Installieren und einrichten',
+    fw: 'Den Rest erklärt die Installationsseite Schritt für Schritt: die Firmware direkt aus dem Browser aufs Board spielen, dann das Auge mit dem Handy ins WLAN bringen. Dauert etwa 10 Minuten.',
+    'fw-go': 'Zur Installationsseite',
+    upd: 'Danach musst du nichts mehr tun: Updates kommen von selbst übers WLAN.',
+    back: '← Zurück zur Moonwatcher-Seite',
+    credit: 'Ideen &amp; Gestaltung: Torsten Hillmann (<a href="https://x.com/manhill" rel="noopener">@manhill</a>) · Funktronix. Umgesetzt mit Claude, einer KI von Anthropic.',
+    thanks: 'Tests &amp; Prototyp-Gehäuse: Bix'
+  };
+  const EN = {};
+  document.querySelectorAll('[data-t]').forEach(el => EN[el.dataset.t] = el.innerHTML);
+  function setLang(l) {
+    const d = l === 'de' ? DE : EN;
+    document.querySelectorAll('[data-t]').forEach(el => { if (d[el.dataset.t]) el.innerHTML = d[el.dataset.t]; });
+    document.documentElement.lang = l;
+    document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === l));
+  }
+  // gleiche Sprachwahl wie Haupt- und Flash-Seite: nur eine bewusste Wahl wird gespeichert
+  document.querySelectorAll('.lang button').forEach(b => b.onclick = () => {
+    try { localStorage.setItem('mw-lang-choice', b.dataset.l); } catch (e) {}
+    setLang(b.dataset.l);
+  });
+  let saved = null; try { saved = localStorage.getItem('mw-lang-choice'); } catch (e) {}
+  if (saved === 'de') setLang('de');
+</script>
+</body>
+</html>
