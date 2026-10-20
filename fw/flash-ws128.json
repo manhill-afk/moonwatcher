@@ -1,13 +1,13 @@
 {
     "name":  "Moonwatcher",
-    "version":  "0.3.6",
+    "version":  "0.3.7",
     "new_install_prompt_erase":  true,
     "builds":  [
                    {
                        "chipFamily":  "ESP32-S3",
                        "parts":  [
                                      {
-                                         "path":  "moonwatcher-ws128-0.3.6-full.bin",
+                                         "path":  "moonwatcher-ws128-0.3.7-full.bin",
                                          "offset":  0
                                      }
                                  ]
