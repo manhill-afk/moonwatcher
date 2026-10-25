@@ -39,7 +39,7 @@
   </div>
   <p data-t="lead"><span class="k">Build your own Moonwatcher in about 15 minutes:</span> buy one board with a metal case, install the firmware from your browser, plug in USB-C – done. No soldering, no 3D printer, no coding.</p>
   <p class="dim" data-t="what">You end up with a round eye on your desk that shows the crypto market: colour = trend, pupil = volatility, gaze = trading volume, sparkle = distance from the high. The firmware is free and updates itself over Wi-Fi.</p>
-  <p class="dim" data-t="ready">Rather not build it yourself? A ready-made Moonwatcher is in the works. If you'd like one, drop me a line at <a href="mailto:moonwatcher@funktronix.de?subject=Moonwatcher" data-goatcounter-click="build-mail">moonwatcher@funktronix.de</a> and I'll get back to you when it's ready.</p>
+  <p class="dim" data-t="ready">Can't or don't want to build it yourself? Drop me a line at <a href="mailto:moonwatcher@funktronix.de?subject=Moonwatcher" data-goatcounter-click="build-mail">moonwatcher@funktronix.de</a> and we'll find a way.</p>
 
   <!-- Selbstbau-Weg (Hilli 10.10.2026): -B mit Waveshare-Metallgehaeuse kaufen, im Browser flashen, USB-C rein, fertig -->
   <section>
@@ -75,7 +75,10 @@
       <li data-t="a2">Unpack the board, plug in the USB-C data cable, other end into your computer.</li>
       <li data-t="a3">The board starts as soon as it gets power – there's no power button. Whatever it shows now (a maker demo) doesn't matter; it gets replaced in a moment.</li>
     </ol>
-    <p class="dim" data-t="case">Want a stand or a different look? A 3D-printable Moonwatcher case is in the works – the link follows here once it's finished.</p>
+    <!-- Weg 2 (Hilli 25.10.2026): Board im Gehaeuse + Ständer "Moonwatcher Lander" zum Selbstdrucken; MakerWorld-Link folgt -->
+    <p class="dim" data-t="case">Got a 3D printer? Print the <b>Moonwatcher Lander</b> – a stand made for the eye in its metal case, so it stands even better on your desk: <a href="Moonwatcher_Lander_v1.3mf" download data-goatcounter-click="lander-download">download (3MF)</a>.</p>
+    <!-- Weg 4 (Hilli 25.10.2026): Augengehaeuse zum Drucken, nacktes Board OHNE Metallgehaeuse + Loeten; erst wenn case 2 golden + Probebau nach Anleitung -->
+    <p class="dim" data-t="eyecase">For tinkerers: a 3D-printable eye-shaped case is on its way – it uses the board without metal case and needs a little soldering.</p>
   </section>
 
   <!-- Schritte stehen NUR auf flash.html (eine Quelle, sonst laufen die Seiten auseinander) -->
@@ -94,7 +97,7 @@
   const DE = {
     lead: '<span class="k">Dein eigener Moonwatcher in rund 15 Minuten:</span> ein Board mit Metallgehäuse kaufen, im Browser die Firmware aufspielen, USB-C rein – fertig. Kein Löten, kein 3D-Drucker, kein Programmieren.',
     what: 'Am Ende steht ein rundes Auge auf deinem Tisch, das den Kryptomarkt zeigt: Farbe = Trend, Pupille = Schwankung, Blick = Handelsvolumen, Funkeln = Abstand zum Hoch. Die Firmware ist kostenlos und aktualisiert sich selbst übers WLAN.',
-    ready: 'Lieber nicht selbst bauen? Ein fertiger Moonwatcher ist in Arbeit. Wenn du einen möchtest, schreib mir kurz an <a href="mailto:moonwatcher@funktronix.de?subject=Moonwatcher" data-goatcounter-click="build-mail">moonwatcher@funktronix.de</a>, dann melde ich mich, sobald es so weit ist.',
+    ready: 'Du kannst oder willst nicht selbst bauen? Schreib mir an <a href="mailto:moonwatcher@funktronix.de?subject=Moonwatcher" data-goatcounter-click="build-mail">moonwatcher@funktronix.de</a>, dann finden wir einen Weg.',
     'buy-h': '1. Board kaufen',
     buy: 'Du brauchst genau ein Teil: das <span class="k">Waveshare ESP32-S3-Touch-LCD-1.28-B</span> – die Variante <b>mit Metallgehäuse</b>. Shops nennen es oft „ESP32-S3 Development Board with 1.28inch Round Touch LCD, Accelerometer Gyroscope Sensor“.',
     buywhere: 'Kaufen z. B. bei <a href="https://eckstein-shop.de/WaveShare-ESP32-S3-Development-Board-with-128inch-Round-Touch-LCD-CNC-Metal-Case-Accelerometer-Gyroscope-Sensor" rel="noopener" data-goatcounter-click="buy-eckstein-build">Eckstein</a> (genau diese Version mit Metallgehäuse), im offiziellen <a href="https://www.waveshare.com/esp32-s3-touch-lcd-1.28.htm" rel="noopener" data-goatcounter-click="buy-waveshare-build">Waveshare-Shop</a> oder bei einem seriösen Elektronikhändler – lieber keine Marktplatz-Angebote, die sind oft falsch beschriftet.',
@@ -115,7 +118,8 @@
     asm: 'Es gibt nichts zu verdrahten: Das -B-Board kommt fertig im Metallgehäuse, die USB-C-Buchse ist von außen erreichbar.',
     a2: 'Board auspacken, USB-C-Datenkabel einstecken, anderes Ende an den Computer.',
     a3: 'Das Board startet, sobald es Strom hat – es hat keinen Einschaltknopf. Was es jetzt zeigt (eine Hersteller-Demo), ist egal und wird gleich ersetzt.',
-    case: 'Lieber mit Ständer oder in anderer Form? Ein druckbares Moonwatcher-Gehäuse ist in Arbeit – der Link kommt hierher, sobald es fertig ist.',
+    case: 'Du hast einen 3D-Drucker? Dann druck dir den <b>Moonwatcher Lander</b> – einen Ständer fürs Auge im Metallgehäuse, damit es noch besser auf dem Tisch steht: <a href="Moonwatcher_Lander_v1.3mf" download data-goatcounter-click="lander-download">herunterladen (3MF)</a>.',
+    eyecase: 'Für Bastler: Ein druckbares Gehäuse in Augenform ist unterwegs – dafür kommt das Board ohne Metallgehäuse zum Einsatz, und es braucht ein wenig Löten.',
     'fw-h': '4. Installieren und einrichten',
     fw: 'Den Rest erklärt die Installationsseite Schritt für Schritt: die Firmware direkt aus dem Browser aufs Board spielen, dann das Auge mit dem Handy ins WLAN bringen. Dauert etwa 10 Minuten.',
     'fw-go': 'Zur Installationsseite',
