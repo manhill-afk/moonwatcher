@@ -62,7 +62,7 @@
         Good to know: only <b>2.4 GHz</b> Wi-Fi works (if your network is missing, use the one without “5G” in its name). If your phone asks “No internet – stay connected?”, say <b>yes</b>.
         After saving, “Moonwatcher-Setup” disappears and your phone returns to your Wi-Fi – that's normal. If “Moonwatcher-Setup” shows up again after 2 minutes, the password was wrong: just repeat this step.
         <b>Says “Wrong password?” although it's right?</b> Then your router is blocking new devices – e.g. on a FritzBox switch on “Allow all new Wi-Fi devices” (Wi-Fi → Security) and try again.</li>
-      <li data-t="s6"><span class="k">After about a minute the eye opens and turns colourful</span> (green, yellow or red). Grey means it's still loading. <span class="k">Done! 🎉</span><br>
+      <li data-t="s6"><span class="k">After about a minute the eye opens and turns colourful</span> (green, orange or red). Grey means it's still loading. <span class="k">Done! 🎉</span><br>
         To open the <b>settings page</b> later (pick your coin, brightness, clock …): your phone must be back in <b>your home Wi-Fi</b> – the one you just gave the eye (not “Moonwatcher-Setup”, not mobile data). On the eye, <b>swipe up</b> (keep swiping up) until it says <b>“Settings”</b>, then <b>hold</b> your finger on it. A QR code appears – scan it with your phone camera and <b>tap the link</b> that pops up (“Open”, “Open in browser”); the settings page opens on your phone.</li>
     </ol>
     <esp-web-install-button id="install" manifest="fw/flash-ws128.json">
@@ -72,6 +72,7 @@
     </esp-web-install-button>
     <p class="dim" data-t="erase">A fresh install erases the board, including saved Wi-Fi and settings. Updates later arrive over Wi-Fi by themselves.</p>
   </section>
+  <p data-t="man">What the eye shows and how to use it: <a href="manual.html" data-goatcounter-click="flash-to-manual">the manual</a>.</p>
 
   <p class="dim"><a href="./" data-t="back">← Back to the Moonwatcher page</a> · © 2026 Torsten Hillmann</p>
   <p class="dim" data-t="credit">Ideas &amp; design: Torsten Hillmann (<a href="https://x.com/manhill" rel="noopener">@manhill</a>) · Funktronix. Built with Claude, an AI by Anthropic.</p>
@@ -96,11 +97,12 @@
         'Gut zu wissen: Nur <b>2,4-GHz</b>-WLAN geht (fehlt dein Netz, nimm das ohne „5G“ im Namen). Fragt das Handy „Kein Internet – verbunden bleiben?“: <b>Ja</b>. ' +
         'Nach dem Speichern verschwindet „Moonwatcher-Setup“ und das Handy geht zurück in dein WLAN – das ist normal. Taucht „Moonwatcher-Setup“ nach 2 Minuten wieder auf, war das Passwort falsch: diesen Schritt einfach wiederholen. ' +
         '<b>Zeigt das Auge „Passwort falsch?“, obwohl es stimmt?</b> Dann lässt dein Router keine neuen Geräte ins WLAN – bei der FritzBox z. B. „Alle neuen WLAN-Geräte zulassen“ einschalten (WLAN → Sicherheit) und nochmal versuchen.',
-    s6: '<span class="k">Nach etwa einer Minute öffnet sich das Auge und wird farbig</span> (grün, gelb oder rot). Grau heißt: lädt noch. <span class="k">Fertig! 🎉</span><br>' +
+    s6: '<span class="k">Nach etwa einer Minute öffnet sich das Auge und wird farbig</span> (grün, orange oder rot). Grau heißt: lädt noch. <span class="k">Fertig! 🎉</span><br>' +
         'So öffnest du später die <b>Einstellungsseite</b> (Coin wählen, Helligkeit, Uhr …): Dein Handy muss wieder in <b>deinem Heim-WLAN</b> sein – dem, das du gerade dem Auge gegeben hast (nicht „Moonwatcher-Setup“, nicht Mobilfunk). Am Auge <b>nach oben wischen</b> (weiter hochwischen), bis <b>„Settings“</b> erscheint, dann den Finger darauf <b>halten</b>. Ein QR-Code erscheint – mit der Handykamera scannen und den eingeblendeten <b>Link antippen</b> („Öffnen“, „Im Browser öffnen“); die Einstellungsseite öffnet sich auf dem Handy.',
     install: 'Installieren',
     unsupported: 'Dieser Browser kann keine Geräte flashen. Bitte Chrome oder Edge am Computer verwenden.',
     notallowed: 'Zum Flashen ist eine sichere Verbindung (https) nötig.',
+    man: 'Was das Auge zeigt und wie du es bedienst: <a href="manual.html" data-goatcounter-click="flash-to-manual">das Handbuch</a>.',
     erase: 'Eine Neuinstallation löscht das Board, auch gespeichertes WLAN und Einstellungen. Updates kommen später von selbst übers WLAN.',
     back: '← Zurück zur Moonwatcher-Seite',
     credit: 'Ideen &amp; Gestaltung: Torsten Hillmann (<a href="https://x.com/manhill" rel="noopener">@manhill</a>) · Funktronix. Umgesetzt mit Claude, einer KI von Anthropic.',
