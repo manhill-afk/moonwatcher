@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moonwatcher · Manual</title>
+<meta name="description" content="How to read and use your Moonwatcher: what the eye shows, the sparkle chart explained, gestures, menu, settings page and help.">
+<link rel="icon" href="icon-192.png">
+<style>
+  :root { color-scheme: dark; --night:#0a0c10; --panel:#12151b; --edge:#252a33; --ink:#e9e5da; --dim:#8b909a; --gold:#e7b34f;
+          --up:#5fd38a; --side:#f0a040; --down:#ef5b5b; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--night); color:var(--ink); font:16px/1.5 system-ui,"Segoe UI",sans-serif; padding:24px 16px 40px; }
+  main { max-width:620px; margin:0 auto; display:grid; gap:18px; }
+  .top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  h1 { font:700 30px/1.1 "Trebuchet MS",system-ui,sans-serif; margin:0; letter-spacing:-.01em; }
+  h1 span { color:var(--gold); }
+  h2 { font:700 19px/1.2 "Trebuchet MS",system-ui,sans-serif; margin:0; }
+  h3 { font:700 15px/1.3 system-ui,sans-serif; margin:4px 0 0; color:var(--gold); }
+  .lang { display:inline-flex; border:1px solid var(--edge); border-radius:99px; overflow:hidden; }
+  .lang button { border:0; background:transparent; color:var(--dim); padding:6px 11px; font:600 12px ui-monospace,Consolas,monospace; cursor:pointer; }
+  .lang button[aria-pressed="true"] { background:var(--gold); color:var(--night); }
+  p { margin:0; } .dim { color:var(--dim); font-size:14px; }
+  section { background:var(--panel); border:1px solid var(--edge); border-radius:12px; padding:16px; display:grid; gap:12px; scroll-margin-top:12px; }
+  ol, ul { margin:0; padding-left:20px; display:grid; gap:6px; }
+  table { width:100%; border-collapse:collapse; font-size:14px; }
+  th, td { text-align:left; vertical-align:top; padding:7px 8px 7px 0; border-top:1px solid var(--edge); }
+  th { color:var(--dim); font-weight:600; border-top:0; }
+  td:first-child { width:38%; font-weight:600; }
+  .k { color:var(--gold); font-weight:600; }
+  .t-up { color:var(--up); } .t-side { color:var(--side); } .t-down { color:var(--down); }
+  nav.toc { display:flex; flex-wrap:wrap; gap:6px 14px; font-size:14px; }
+  .go { display:block; text-align:center; padding:13px; border-radius:10px; background:var(--gold); color:var(--night); font-weight:700; text-decoration:none; }
+  a { color:var(--gold); }
+  svg { width:100%; height:auto; display:block; }
+</style>
+<script>window.goatcounter = { path: function () { return location.pathname; } };</script>
+<script data-goatcounter="https://moonwatcher.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<main>
+  <div class="top">
+    <h1>Moon<span>watcher</span></h1>
+    <div class="lang"><button data-l="en" aria-pressed="true">EN</button><button data-l="de" aria-pressed="false">DE</button></div>
+  </div>
+  <p data-t="lead"><span class="k">The manual.</span> Moonwatcher is a round eye that shows you how the crypto market feels – no numbers needed. Here's how to read it and how to use it.</p>
+  <nav class="toc">
+    <a href="#show" data-t="toc1">What the eye shows</a>
+    <a href="#sparkle" data-t="toc2">The sparkle chart</a>
+    <a href="#use" data-t="toc3">Using it</a>
+    <a href="#settings" data-t="toc4">Settings page</a>
+    <a href="#help" data-t="toc5">Help</a>
+  </nav>
+  <p class="dim" data-t="new">Don't have one yet? <a href="build.html">Build your own</a> · already have the board? <a href="flash.html">Install and set up</a>.</p>
+
+  <!-- Quelle der Bedeutungen: Legende der Hauptseite (web/shell.html) + Code (src/feed.cpp), Stand 0.3.41 -->
+  <section id="show">
+    <h2 data-t="show-h">1. What the eye shows</h2>
+    <p data-t="show-p">Everything the eye does comes from the market of the coin it watches (Bitcoin unless you pick another) – except the sky and the moon, which are real.</p>
+    <table>
+      <tr><th data-t="th-see">You see</th><th data-t="th-means">It means</th></tr>
+      <tr><td data-t="r1a">Iris colour</td><td data-t="r1b"><span class="t-up">green</span> = rising, <span class="t-side">orange</span> = sideways, <span class="t-down">red</span> = falling, over the last 24 hours</td></tr>
+      <tr><td data-t="r2a">Pupil</td><td data-t="r2b">wide in a wild market, narrow in a calm one</td></tr>
+      <tr><td data-t="r3a">Gaze</td><td data-t="r3b">lots of trading: restless, blinks and looks around · little trading: it dozes</td></tr>
+      <tr><td data-t="r4a">Shimmer, glitter, full sparkle</td><td data-t="r4b">the coin is unusually cheap compared with its own last two years – the stronger, the cheaper. Full sparkle = <b>BTFD</b> (“buy the dip”). See <a href="#sparkle">the sparkle chart</a>.</td></tr>
+      <tr><td data-t="r5a">Water rises in the eye</td><td data-t="r5b">the price is crashing within the hour – the eye is <em>underwater</em></td></tr>
+      <tr><td data-t="r6a">It flinches</td><td data-t="r6b">a sudden price jump</td></tr>
+      <tr><td data-t="r7a">It’s happy and hops</td><td data-t="r7b">a new all-time high (ATH)</td></tr>
+      <tr><td data-t="r8a">Wide eyes</td><td data-t="r8b">the price breaks a round number</td></tr>
+      <tr><td data-t="r9a">Shooting stars</td><td data-t="r9b">the price takes off, or there is something to celebrate</td></tr>
+      <tr><td data-t="r10a">Grey eye, searching</td><td data-t="r10b">no prices right now (e.g. no internet) – it comes back by itself</td></tr>
+      <tr><td data-t="r11a">Stars in the sky</td><td data-t="r11b">it is dark outside – the real night sky above the place you set, not a price signal</td></tr>
+      <tr><td data-t="r12a">The moon</td><td data-t="r12b">the real moon, phase and position as outside – not a price signal</td></tr>
+      <tr><td data-t="r13a">It falls asleep</td><td data-t="r13b">late at night when the market is quiet</td></tr>
+      <tr><td data-t="r14a">Golden eye</td><td data-t="r14b">Bitcoin halving day (before that, a countdown of the days)</td></tr>
+    </table>
+    <p class="dim" data-t="rare">A few things happen only rarely or at special times. Let it surprise you.</p>
+  </section>
+
+  <!-- Funkel-Diagramm (Hilli 28.10.2026: "muss genau erklaert werden"). Am Code geprueft: Feed::athDropHistory
+       (alle Tage am HEUTIGEN Hoch gemessen, 0 % oben, ~4 Tage je Punkt = billigster), Schwellen feed.cpp
+       (ab 300 Tageskursen: Median / 75 % / 90 %, Untergrenzen 5 / 12 / 20 %), Diagramm webui.cpp -->
+  <section id="sparkle">
+    <h2 data-t="sp-h">2. The sparkle chart, explained</h2>
+    <p data-t="sp-p">On the settings page there is a small chart. It shows <b>why</b> the eye sparkles – or why not.</p>
+    <svg viewBox="0 0 300 172" role="img" aria-label="Example: price line with three sparkle bands below it">
+      <rect x="0" y="0" width="300" height="172" rx="8" fill="#0a0c10"/>
+      <line x1="10" y1="22" x2="232" y2="22" stroke="#252a33"/>
+      <text x="10" y="16" font-size="10" fill="#8b909a" data-t="sv-top">0 % = all-time high</text>
+      <rect x="10" y="92" width="222" height="24" fill="#e7b34f" opacity=".10"/>
+      <rect x="10" y="116" width="222" height="20" fill="#e7b34f" opacity=".20"/>
+      <rect x="10" y="136" width="222" height="26" fill="#e7b34f" opacity=".34"/>
+      <text x="238" y="108" font-size="10" fill="#e7b34f" data-t="sv-s">shimmer</text>
+      <text x="238" y="130" font-size="10" fill="#e7b34f" data-t="sv-g">glitter</text>
+      <text x="238" y="152" font-size="10" fill="#e7b34f">BTFD</text>
+      <polyline fill="none" stroke="#e9e5da" stroke-width="1.6" stroke-linejoin="round"
+        points="10,70 22,62 34,74 46,58 58,40 70,30 82,26 94,44 106,60 118,84 130,102 142,124 150,142 158,128 170,104 182,96 194,110 206,120 218,112 230,118"/>
+      <circle cx="230" cy="118" r="3.5" fill="#e7b34f"/>
+      <text x="226" y="84" font-size="10" fill="#e9e5da" text-anchor="end" data-t="sv-now">today</text>
+      <text x="10" y="170" font-size="9" fill="#8b909a" data-t="sv-ago">2 years ago</text>
+    </svg>
+    <p class="dim" data-t="sv-cap">Example drawing – your chart shows the real data of your coin.</p>
+    <h3 data-t="sp-line-h">The line</h3>
+    <p data-t="sp-line">The line is the price of the last two years, measured as <b>distance below the all-time high</b>. The top edge is 0 %: there the price was at its high. The lower the line, the further below the high. So it has the <b>same shape as a normal price chart</b>: price up, line up – price down, line down.</p>
+    <p data-t="sp-ath">On a new all-time high the line touches the top edge, and all older days move down a little – they are now further below the new high. The shape stays the same, only the scale changes.</p>
+    <h3 data-t="sp-band-h">The three bands</h3>
+    <p data-t="sp-band">The bands come from the coin's <b>own history</b>: the eye looks at every day of the last two years and asks “how far below the high was it that day?”.</p>
+    <ul>
+      <li data-t="sp-b1"><b>Shimmer</b> from the middle value: the coin was this cheap or cheaper on half of all days.</li>
+      <li data-t="sp-b2"><b>Glitter</b>: this cheap on only 1 in 4 days.</li>
+      <li data-t="sp-b3"><b>BTFD</b>, full sparkle: this cheap on only <b>1 in 10 days</b>.</li>
+    </ul>
+    <p data-t="sp-dip">When the line dips <b>into a band</b>, the eye shimmers, glitters or sparkles fully. The deeper, the stronger.</p>
+    <h3 data-t="sp-flat-h">Why are the bands flat?</h3>
+    <p data-t="sp-flat">The bands show <b>today's yardstick</b>, laid over all past days: “how would the eye judge each of these days today?”. The eye recalculates them every day from the last two years, so they move slowly – a little each day, but always as straight lines.</p>
+    <h3 data-t="sp-more-h">Good to know</h3>
+    <ul>
+      <li data-t="sp-m1">Every coin has its own bands: a calm coin sparkles at a smaller drop than a wild one.</li>
+      <li data-t="sp-m2">So that a strong bull market doesn't sparkle at every small dip, there are minimums: shimmer at least 5 %, glitter 12 %, BTFD 20 % below the high.</li>
+      <li data-t="sp-m3">A new coin, or right after switching on, has too little history (under about 300 days): then fixed values per coin group apply until enough days are loaded.</li>
+      <li data-t="sp-m4">The chart has 180 points; each point covers about four days and shows the cheapest of them – the dips are what counts here.</li>
+      <li data-t="sp-m5"><span class="k">Tip:</span> put your phone next to the eye with the settings page open. The chart follows whatever coin the eye shows – also when it switches coins by itself (watchlist).</li>
+    </ul>
+  </section>
+
+  <!-- Gesten/Menue am Code geprueft: firmware/src/main.cpp (MENU_EN/MENU_DE, HOLD_MS 800, Klopfen) -->
+  <section id="use">
+    <h2 data-t="use-h">3. Using it</h2>
+    <h3 data-t="u-touch-h">On the screen</h3>
+    <ul>
+      <li data-t="u1"><b>Tap:</b> price, change over 24 hours and a small 24-hour chart.</li>
+      <li data-t="u2"><b>Swipe left / right:</b> next / previous coin, like a photo gallery. With a watchlist set, only through those coins.</li>
+      <li data-t="u3"><b>Long press:</b> quick help with all gestures.</li>
+      <li data-t="u4"><b>Swipe up:</b> menu. Keep swiping up or tap = next item, swipe down = previous, <b>hold</b> = start. Doing nothing for 5 seconds closes it.</li>
+    </ul>
+    <h3 data-t="u-menu-h">The menu</h3>
+    <p class="dim" data-t="u-menu-p">The eye starts in English; switch to German on the settings page.</p>
+    <table>
+      <tr><td>Demo</td><td data-t="m1">shows everything the eye can do; a tap ends it</td></tr>
+      <tr><td>Moonball</td><td data-t="m2">a little game against the eye: after 3-2-1, turn the whole device like a steering wheel or steer with your finger; swipe up = end. The eye is a sore loser.</td></tr>
+      <tr><td data-t="m3a">Clock</td><td data-t="m3">clock in the eye on/off: hands as glowing iris fibres, a dial made of stars</td></tr>
+      <tr><td data-t="m4a">Rotate</td><td data-t="m4">turns the picture by 90° – if the board sits differently in a stand or case</td></tr>
+      <tr><td>Settings</td><td data-t="m5">shows a QR code to the settings page (see below)</td></tr>
+      <tr><td data-t="m6a">Tip jar</td><td data-t="m6">QR code for a small Lightning tip to the developer – entirely optional</td></tr>
+      <tr><td data-t="m7a">Exit</td><td data-t="m7">closes the menu</td></tr>
+    </table>
+    <h3 data-t="u-dev-h">On the device itself</h3>
+    <ul>
+      <li data-t="d1"><b>Knock twice</b> (on the table next to it or on the case): shows the price too. Best clearly with a small pause, “knock … knock” – a very fast “knockknock” counts as one knock.</li>
+      <li data-t="d2"><b>Shake:</b> it gets dizzy.</li>
+      <li data-t="d3"><b>Pick it up:</b> it notices and looks at you. <b>Tilt it:</b> its gaze rolls a little to the lower side.</li>
+    </ul>
+    <h3 data-t="u-pow-h">Power</h3>
+    <p data-t="u-pow">The eye runs on any USB power adapter, e.g. a phone charger, via USB-C. It starts as soon as it gets power – there is no power button. For running, any USB-C cable will do; only installing the firmware needs a data cable.</p>
+  </section>
+
+  <!-- Einstellungsseite am Code geprueft: firmware/src/webui.cpp (Stand 0.3.41) -->
+  <section id="settings">
+    <h2 data-t="set-h">4. The settings page</h2>
+    <p data-t="set-open"><b>Open it:</b> your phone must be in the same Wi-Fi as the eye. On the eye, swipe up until it says <b>“Settings”</b> and hold your finger on it. Scan the QR code with your phone camera and tap the link. (The address is shown below the code; on a computer <b>http://moonwatcher.local</b> usually works too.) A tap closes the QR code.</p>
+    <p data-t="set-what">What you can set there:</p>
+    <ul>
+      <li data-t="s1"><b>Currency</b> (EUR or USD) and <b>location</b> – for the time and the real night sky.</li>
+      <li data-t="s2"><b>Personality:</b> calm, normal or nervous – how lively the eye moves.</li>
+      <li data-t="s3"><b>Brightness</b> and <b>night dimming</b>: between two times of day the eye gets darker; a tap lights it up for 30 seconds. Things you start yourself (Moonball, demo, menu QR codes) stay bright. Same hour for “from” and “to” = always dimmed. Stars and sleep come regardless of the dimmer.</li>
+      <li data-t="s4"><b>Clock in the eye</b>, <b>rotate display</b>, <b>demo mode</b> (the demo repeats endlessly, e.g. for a shop window).</li>
+      <li data-t="s5"><b>Moonball:</b> difficulty (up to “cheater”), steering sensitivity, invert steering.</li>
+      <li data-t="s6"><b>More coins:</b> pick another coin, or set a <b>watchlist</b> – the eye then switches between the ticked coins every few minutes. Switching off takes it back to the coin you picked yourself.</li>
+      <li data-t="s7"><b>Price, “Below ATH” and the sparkle chart</b> (see above) – they update by themselves while the page is open.</li>
+      <li data-t="s8"><b>Language</b> (English / Deutsch) at the top.</li>
+    </ul>
+    <p data-t="set-upd"><b>Updates</b> arrive over Wi-Fi by themselves (once a day). Want one right away? Tap <b>“Check for updates”</b>. If an update ever doesn't work out, the eye goes back to the previous version on its own.</p>
+  </section>
+
+  <section id="help">
+    <h2 data-t="help-h">5. If something seems off</h2>
+    <ul>
+      <li data-t="h1"><b>Grey eye:</b> it has no prices for a moment. Usually they come back within a few minutes, also after a Wi-Fi outage. If not: unplug it briefly and plug it back in.</li>
+      <li data-t="h2"><b>Doesn't react to touch:</b> knock twice – that also wakes the touch sensor.</li>
+      <li data-t="h3"><b>Brightness slider does nothing:</b> night dimming is probably active – the page says so; then the night brightness applies.</li>
+      <li data-t="h4"><b>New router or Wi-Fi password:</b> on the settings page, tap “Set up Wi-Fi again”. If the eye can't find its Wi-Fi, it shows a QR code for setting it up – just like the first time, see the <a href="flash.html">install page</a>.</li>
+      <li data-t="h5"><b>Picture upside down or sideways:</b> menu → Rotate.</li>
+      <li data-t="h6"><b>Something strange happened?</b> On the settings page open <b>“Diagnostics”</b> at the bottom and tap <b>“Send a report to the developer”</b> – it includes the log of what the device went through. That helps a lot.</li>
+    </ul>
+    <p class="dim" data-t="h-mail">Questions or ideas: <a href="mailto:moonwatcher@funktronix.de?subject=Moonwatcher" data-goatcounter-click="manual-mail">moonwatcher@funktronix.de</a></p>
+  </section>
+
+  <p class="dim" data-t="nfa">Moonwatcher shows moods, not advice. Not investment advice.</p>
+  <p class="dim"><a href="./" data-t="back">← Back to the Moonwatcher page</a> · © 2026 Torsten Hillmann</p>
+  <p class="dim" data-t="credit">Ideas &amp; design: Torsten Hillmann (<a href="https://x.com/manhill" rel="noopener">@manhill</a>) · Funktronix. Built with Claude, an AI by Anthropic.</p>
+  <p class="dim" data-t="thanks">Testing &amp; prototype case: Bix</p>
+</main>
+<script>
+  const DE = {
+    lead: '<span class="k">Das Handbuch.</span> Moonwatcher ist ein rundes Auge, das dir zeigt, wie sich der Kryptomarkt anfühlt – ganz ohne Zahlen. Hier steht, wie du es liest und bedienst.',
+    toc1: 'Was das Auge zeigt', toc2: 'Das Funkel-Diagramm', toc3: 'Bedienen', toc4: 'Einstellungsseite', toc5: 'Hilfe',
+    new: 'Noch keins? <a href="build.html">Selbst bauen</a> · Board schon da? <a href="flash.html">Installieren und einrichten</a>.',
+    'show-h': '1. Was das Auge zeigt',
+    'show-p': 'Alles, was das Auge tut, kommt vom Markt des Coins, den es beobachtet (Bitcoin, wenn du keinen anderen wählst) – außer Himmel und Mond, die sind echt.',
+    'th-see': 'Du siehst', 'th-means': 'Bedeutung',
+    r1a: 'Farbe der Iris', r1b: '<span class="t-up">grün</span> = steigt, <span class="t-side">orange</span> = seitwärts, <span class="t-down">rot</span> = fällt, jeweils über die letzten 24 Stunden',
+    r2a: 'Pupille', r2b: 'weit bei wildem Markt, eng bei ruhigem',
+    r3a: 'Blick', r3b: 'viel Handel: unruhig, blinzelt und schaut umher · wenig Handel: es döst',
+    r4a: 'Schimmern, Glitzern, volles Funkeln', r4b: 'der Coin ist ungewöhnlich billig, gemessen an seinen eigenen letzten zwei Jahren – je stärker, desto billiger. Volles Funkeln = <b>BTFD</b> („buy the dip“). Siehe <a href="#sparkle">Funkel-Diagramm</a>.',
+    r5a: 'Wasser steigt im Auge', r5b: 'der Kurs stürzt innerhalb einer Stunde ab – das Auge ist <em>underwater</em>',
+    r6a: 'Es erschrickt', r6b: 'ein plötzlicher Kurssprung',
+    r7a: 'Es freut sich und hüpft', r7b: 'ein neues Allzeithoch (ATH)',
+    r8a: 'Große Augen', r8b: 'der Kurs knackt eine runde Marke',
+    r9a: 'Sternschnuppen', r9b: 'der Kurs hebt ab, oder es gibt etwas zu feiern',
+    r10a: 'Graues Auge, sucht', r10b: 'gerade keine Kurse (z. B. kein Internet) – kommt von selbst wieder',
+    r11a: 'Sterne am Himmel', r11b: 'draußen ist es dunkel – der echte Nachthimmel über deinem eingestellten Ort, kein Kurssignal',
+    r12a: 'Der Mond', r12b: 'der echte Mond, Phase und Stand wie draußen – kein Kurssignal',
+    r13a: 'Es schläft ein', r13b: 'spät in der Nacht, wenn der Markt ruhig ist',
+    r14a: 'Goldenes Auge', r14b: 'Bitcoin-Halving-Tag (vorher ein Countdown der Tage)',
+    rare: 'Ein paar Dinge passieren nur selten oder zu besonderen Zeiten. Lass dich überraschen.',
+    'sp-h': '2. Das Funkel-Diagramm, genau erklärt',
+    'sp-p': 'Auf der Einstellungsseite gibt es ein kleines Diagramm. Es zeigt, <b>warum</b> das Auge funkelt – oder warum nicht.',
+    'sv-top': '0 % = Allzeithoch', 'sv-s': 'Schimmern', 'sv-g': 'Glitzern', 'sv-now': 'heute', 'sv-ago': 'vor 2 Jahren',
+    'sv-cap': 'Beispielzeichnung – dein Diagramm zeigt die echten Daten deines Coins.',
+    'sp-line-h': 'Die Kurve',
+    'sp-line': 'Die Kurve ist der Kurs der letzten zwei Jahre, gemessen als <b>Abstand unter dem Allzeithoch</b>. Der obere Rand ist 0 %: Dort stand der Kurs auf seinem Hoch. Je tiefer die Kurve, desto weiter unter dem Hoch. Sie hat also <b>dieselbe Form wie ein normaler Kurschart</b>: Kurs steigt, Kurve steigt – Kurs fällt, Kurve fällt.',
+    'sp-ath': 'Bei einem neuen Allzeithoch berührt die Kurve den oberen Rand, und alle älteren Tage rutschen ein Stück nach unten – sie liegen jetzt weiter unter dem neuen Hoch. Die Form bleibt gleich, nur der Maßstab ändert sich.',
+    'sp-band-h': 'Die drei Bänder',
+    'sp-band': 'Die Bänder kommen aus der <b>eigenen Geschichte</b> des Coins: Das Auge schaut sich jeden Tag der letzten zwei Jahre an und fragt „wie weit lag er an diesem Tag unter dem Hoch?“.',
+    'sp-b1': '<b>Schimmern</b> ab dem mittleren Wert: So billig oder billiger war der Coin an der Hälfte aller Tage.',
+    'sp-b2': '<b>Glitzern</b>: so billig nur an jedem 4. Tag.',
+    'sp-b3': '<b>BTFD</b>, volles Funkeln: so billig nur an <b>jedem 10. Tag</b>.',
+    'sp-dip': 'Taucht die Kurve <b>in ein Band</b>, schimmert, glitzert oder funkelt das Auge voll. Je tiefer, desto stärker.',
+    'sp-flat-h': 'Warum sind die Bänder waagerecht?',
+    'sp-flat': 'Die Bänder zeigen den <b>Maßstab von heute</b>, gelegt über alle vergangenen Tage: „Wie würde das Auge jeden dieser Tage heute bewerten?“. Das Auge rechnet sie jeden Tag neu aus den letzten zwei Jahren, deshalb verschieben sie sich langsam – jeden Tag ein wenig, aber immer als gerade Linien.',
+    'sp-more-h': 'Gut zu wissen',
+    'sp-m1': 'Jeder Coin hat eigene Bänder: Ein ruhiger Coin funkelt schon bei einem kleineren Rückgang als ein wilder.',
+    'sp-m2': 'Damit es im starken Bullenmarkt nicht bei jedem kleinen Rücksetzer funkelt, gibt es Untergrenzen: Schimmern frühestens 5 %, Glitzern 12 %, BTFD 20 % unter dem Hoch.',
+    'sp-m3': 'Ein neuer Coin, oder direkt nach dem Einschalten, hat zu wenig Geschichte (unter etwa 300 Tagen): Dann gelten feste Werte je Coin-Gruppe, bis genug Tage geladen sind.',
+    'sp-m4': 'Das Diagramm hat 180 Punkte; jeder Punkt fasst etwa vier Tage zusammen und zeigt den billigsten davon – hier zählen die Dips.',
+    'sp-m5': '<span class="k">Tipp:</span> Leg dein Handy mit offener Einstellungsseite neben das Auge. Das Diagramm folgt dem Coin, den das Auge gerade zeigt – auch wenn es von selbst wechselt (Watchlist).',
+    'use-h': '3. Bedienen',
+    'u-touch-h': 'Auf dem Display',
+    u1: '<b>Tippen:</b> Kurs, Änderung über 24 Stunden und eine kleine 24-Stunden-Kurve.',
+    u2: '<b>Nach links / rechts wischen:</b> nächster / voriger Coin, wie in einer Fotogalerie. Mit Watchlist nur durch diese Coins.',
+    u3: '<b>Lange drücken:</b> kurze Hilfe mit allen Gesten.',
+    u4: '<b>Nach oben wischen:</b> Menü. Weiter hochwischen oder tippen = nächster Punkt, runterwischen = voriger, <b>halten</b> = starten. 5 Sekunden nichts tun schließt es.',
+    'u-menu-h': 'Das Menü',
+    'u-menu-p': 'Das Auge startet auf Englisch; auf Deutsch umstellen geht auf der Einstellungsseite. In Klammern die deutschen Namen.',
+    m1: 'zeigt alles, was das Auge kann; Antippen beendet sie',
+    m2: 'ein kleines Spiel gegen das Auge: nach 3-2-1 das ganze Gerät wie ein Lenkrad drehen oder mit dem Finger steuern; nach oben wischen = Ende. Das Auge ist ein schlechter Verlierer.',
+    m3a: 'Clock (Uhr)', m3: 'Uhr im Auge an/aus: Zeiger als leuchtende Irisfasern, Ziffernblatt aus Sternen',
+    m4a: 'Rotate (Drehen)', m4: 'dreht das Bild um 90° – falls das Board anders in einem Ständer oder Gehäuse sitzt',
+    m5: 'zeigt einen QR-Code zur Einstellungsseite (siehe unten)',
+    m6a: 'Tip jar (Trinkgeld)', m6: 'QR-Code für ein kleines Lightning-Trinkgeld an den Entwickler – ganz freiwillig',
+    m7a: 'Exit (Ende)', m7: 'schließt das Menü',
+    'u-dev-h': 'Am Gerät selbst',
+    d1: '<b>Zweimal anklopfen</b> (auf den Tisch daneben oder ans Gehäuse): zeigt auch den Kurs. Am besten deutlich mit kleiner Pause, „klopf … klopf“ – ein sehr schnelles „klopfklopf“ zählt als ein Klopfen.',
+    d2: '<b>Schütteln:</b> Dem Auge wird schwindlig.',
+    d3: '<b>Hochheben:</b> Es merkt das und schaut dich an. <b>Neigen:</b> Der Blick rollt etwas zur tieferen Seite.',
+    'u-pow-h': 'Strom',
+    'u-pow': 'Das Auge läuft an jedem USB-Netzteil, z. B. einem Handy-Ladegerät, über USB-C. Es startet, sobald es Strom hat – einen Einschaltknopf gibt es nicht. Zum Betrieb reicht jedes USB-C-Kabel; nur zum Installieren der Firmware braucht es ein Datenkabel.',
+    'set-h': '4. Die Einstellungsseite',
+    'set-open': '<b>Öffnen:</b> Dein Handy muss im selben WLAN sein wie das Auge. Am Auge nach oben wischen, bis <b>„Settings“</b> erscheint, und den Finger darauf halten. Den QR-Code mit der Handykamera scannen und den Link antippen. (Die Adresse steht unter dem Code; am Computer geht meist auch <b>http://moonwatcher.local</b>.) Antippen schließt den QR-Code.',
+    'set-what': 'Was du dort einstellen kannst:',
+    s1: '<b>Währung</b> (EUR oder USD) und <b>Ort</b> – für die Uhrzeit und den echten Nachthimmel.',
+    s2: '<b>Charakter:</b> ruhig, normal oder nervös – wie lebhaft sich das Auge bewegt.',
+    s3: '<b>Helligkeit</b> und <b>Nachtdimmer</b>: Zwischen zwei Uhrzeiten wird das Auge dunkler; Antippen macht es für 30 Sekunden hell. Was du selbst startest (Moonball, Demo, QR-Codes aus dem Menü), bleibt hell. Gleiche Stunde bei „von“ und „bis“ = immer gedimmt. Sterne und Schlaf kommen unabhängig vom Dimmer.',
+    s4: '<b>Uhr im Auge</b>, <b>Anzeige drehen</b>, <b>Demo-Modus</b> (die Demo läuft endlos, z. B. im Schaufenster).',
+    s5: '<b>Moonball:</b> Schwierigkeit (bis „Schummler“), Lenk-Empfindlichkeit, Lenkrichtung umkehren.',
+    s6: '<b>Weitere Coins:</b> einen anderen Coin wählen oder eine <b>Watchlist</b> setzen – das Auge wechselt dann alle paar Minuten zwischen den angehakten Coins. Wechsel aus bringt es zurück zu dem Coin, den du selbst gewählt hast.',
+    s7: '<b>Kurs, „Unter ATH“ und das Funkel-Diagramm</b> (siehe oben) – sie aktualisieren sich von selbst, solange die Seite offen ist.',
+    s8: '<b>Sprache</b> (English / Deutsch) ganz oben.',
+    'set-upd': '<b>Updates</b> kommen von selbst übers WLAN (einmal am Tag). Gleich eins holen? <b>„Nach Update suchen“</b> antippen. Klappt ein Update einmal nicht, geht das Auge von selbst zur vorigen Version zurück.',
+    'help-h': '5. Wenn etwas komisch ist',
+    h1: '<b>Graues Auge:</b> Es hat kurz keine Kurse. Meist kommen sie nach ein paar Minuten von selbst wieder, auch nach einem WLAN-Ausfall. Wenn nicht: kurz abstecken und wieder einstecken.',
+    h2: '<b>Reagiert nicht auf Berührung:</b> zweimal anklopfen – das weckt auch den Touch-Sensor.',
+    h3: '<b>Helligkeitsregler tut nichts:</b> Wahrscheinlich ist der Nachtdimmer aktiv – die Seite sagt es dann; es gilt die Helligkeit nachts.',
+    h4: '<b>Neuer Router oder neues WLAN-Passwort:</b> auf der Einstellungsseite „WLAN neu einrichten“ antippen. Findet das Auge sein WLAN nicht, zeigt es einen QR-Code zum Einrichten – genau wie beim ersten Mal, siehe <a href="flash.html">Installationsseite</a>.',
+    h5: '<b>Bild steht auf dem Kopf oder seitlich:</b> Menü → Rotate (Drehen).',
+    h6: '<b>Etwas Seltsames passiert?</b> Auf der Einstellungsseite ganz unten <b>„Diagnose“</b> aufklappen und <b>„Bericht an den Entwickler schreiben“</b> antippen – darin steht das Protokoll, was das Gerät erlebt hat. Das hilft sehr.',
+    'h-mail': 'Fragen oder Ideen: <a href="mailto:moonwatcher@funktronix.de?subject=Moonwatcher" data-goatcounter-click="manual-mail">moonwatcher@funktronix.de</a>',
+    nfa: 'Moonwatcher zeigt Stimmungen, keine Ratschläge. Keine Anlageberatung.',
+    back: '← Zurück zur Moonwatcher-Seite',
+    credit: 'Ideen &amp; Gestaltung: Torsten Hillmann (<a href="https://x.com/manhill" rel="noopener">@manhill</a>) · Funktronix. Umgesetzt mit Claude, einer KI von Anthropic.',
+    thanks: 'Tests &amp; Prototyp-Gehäuse: Bix'
+  };
+  // SVG-Texte: textContent statt innerHTML (sonst XHTML-Namensraum-Aerger im SVG)
+  const EN = {};
+  document.querySelectorAll('[data-t]').forEach(el => EN[el.dataset.t] = el instanceof SVGElement ? el.textContent : el.innerHTML);
+  function setLang(l) {
+    const d = l === 'de' ? DE : EN;
+    document.querySelectorAll('[data-t]').forEach(el => {
+      const v = d[el.dataset.t]; if (!v) return;
+      if (el instanceof SVGElement) el.textContent = v; else el.innerHTML = v;
+    });
+    document.documentElement.lang = l;
+    document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === l));
+  }
+  // gleiche Sprachwahl wie die anderen Seiten: nur eine bewusste Wahl wird gespeichert
+  document.querySelectorAll('.lang button').forEach(b => b.onclick = () => {
+    try { localStorage.setItem('mw-lang-choice', b.dataset.l); } catch (e) {}
+    setLang(b.dataset.l);
+  });
+  let saved = null; try { saved = localStorage.getItem('mw-lang-choice'); } catch (e) {}
+  if (saved === 'de') setLang('de');
+</script>
+</body>
+</html>
