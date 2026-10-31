@@ -1,13 +1,13 @@
 {
     "name":  "Moonwatcher",
-    "version":  "0.3.42",
+    "version":  "0.3.43",
     "new_install_prompt_erase":  true,
     "builds":  [
                    {
                        "chipFamily":  "ESP32-S3",
                        "parts":  [
                                      {
-                                         "path":  "moonwatcher-jxl-0.3.42-full.bin",
+                                         "path":  "moonwatcher-jxl-0.3.43-full.bin",
                                          "offset":  0
                                      }
                                  ]
