@@ -27,6 +27,9 @@
   .k { color:var(--gold); font-weight:600; }   /* das Wichtigste: wer nur ueberfliegt, liest das */
   .go { display:block; text-align:center; padding:13px; border-radius:10px; background:var(--gold); color:var(--night); font-weight:700; text-decoration:none; }
   a { color:var(--gold); }
+  figure { margin:0; display:grid; gap:6px; }
+  figure img { width:100%; height:auto; display:block; border-radius:10px; border:1px solid var(--edge); }
+  figcaption { color:var(--dim); font-size:14px; }
 </style>
 <script>window.goatcounter = { path: function () { return location.pathname; } };</script>
 <script data-goatcounter="https://moonwatcher.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -45,6 +48,10 @@
   <section>
     <h2 data-t="buy-h">1. Buy the board</h2>
     <p data-t="buy">You need exactly one part: the <span class="k">Waveshare ESP32-S3-Touch-LCD-1.28-B</span> – the version <b>with the metal case</b>. Shops often call it “ESP32-S3 Development Board with 1.28inch Round Touch LCD, Accelerometer Gyroscope Sensor”.</p>
+    <figure>
+      <img src="foto-board.jpg" width="960" height="640" loading="lazy" alt="The round board in its black metal case on a wooden table" data-ta="alt-board">
+      <figcaption data-t="cap-board">This is the one: the -B in its metal case, as it comes out of the box.</figcaption>
+    </figure>
     <p class="dim" data-t="buywhere">Buy it e.g. at <a href="https://eckstein-shop.de/WaveShare-ESP32-S3-Development-Board-with-128inch-Round-Touch-LCD-CNC-Metal-Case-Accelerometer-Gyroscope-Sensor" rel="noopener" data-goatcounter-click="buy-eckstein-build">Eckstein</a> (Germany, exactly this version with metal case), from the official <a href="https://www.waveshare.com/esp32-s3-touch-lcd-1.28-b.htm" rel="noopener" data-goatcounter-click="buy-waveshare-build">Waveshare shop</a> or a trusted electronics store – avoid marketplace listings, they are often mislabelled.</p>
     <p data-t="twins"><b>Watch out for look-alikes</b> – these look almost the same but won't work:</p>
     <table>
@@ -76,7 +83,11 @@
       <li data-t="a3">The board starts as soon as it gets power – there's no power button. Whatever it shows now (a maker demo) doesn't matter; it gets replaced in a moment.</li>
     </ol>
     <!-- Weg 2 (Hilli 25.10.2026): Board im Gehaeuse + Ständer "Moonwatcher Lander" zum Selbstdrucken; MakerWorld-Link folgt -->
-    <p class="dim" data-t="case">Got a 3D printer? Print the <b>Moonwatcher Lander</b> – a stand made for the eye in its metal case, so it stands even better on your desk: <a href="Moonwatcher_Lander_v1.3mf" download data-goatcounter-click="lander-download">download (3MF)</a>. Print in PLA or PETG with supports. Feed the USB-C cable up through the stand from below, plug it into the eye and set the eye in. Any USB-C cable will do for this, even a charge-only one – the data cable is only needed once, for installing.</p>
+    <p class="dim" data-t="case">Got a 3D printer? Print the <b>Moonwatcher Lander</b> – a stand made for the eye in its metal case, so it stands even better on your desk: <a href="Moonwatcher_Lander_v1.3mf" download data-goatcounter-click="lander-download">download (3MF)</a>. Print in PETG or PLA, no supports needed (if Bambu Studio warns about floating regions, you can ignore it). Feed the USB-C cable up through the stand from below, plug it into the eye and set the eye in. Any USB-C cable with a straight plug will do for this, even a charge-only one – the data cable is only needed once, for installing. Plug body max. 12.5 × 7 mm and about 21 mm long (without the metal part), cable max. 5 mm thick. Angled plugs don't fit.</p>
+    <figure>
+      <img src="foto-lander-hinten.jpg" width="960" height="640" loading="lazy" alt="The Lander from behind: the USB cable runs up through the stand to the eye" data-ta="alt-lander">
+      <figcaption data-t="cap-lander">The Lander from behind: the cable comes up through the stand.</figcaption>
+    </figure>
     <!-- Weg 4 (Hilli 25.10.2026): Augengehaeuse zum Drucken, nacktes Board OHNE Metallgehaeuse + Loeten; erst wenn case 2 golden + Probebau nach Anleitung -->
     <p class="dim" data-t="eyecase">For tinkerers: a 3D-printable eye-shaped case is on its way – it uses the board without metal case and needs a little soldering.</p>
   </section>
@@ -103,6 +114,8 @@
     'buy-h': '1. Board kaufen',
     buy: 'Du brauchst genau ein Teil: das <span class="k">Waveshare ESP32-S3-Touch-LCD-1.28-B</span> – die Variante <b>mit Metallgehäuse</b>. Shops nennen es oft „ESP32-S3 Development Board with 1.28inch Round Touch LCD, Accelerometer Gyroscope Sensor“.',
     buywhere: 'Kaufen z. B. bei <a href="https://eckstein-shop.de/WaveShare-ESP32-S3-Development-Board-with-128inch-Round-Touch-LCD-CNC-Metal-Case-Accelerometer-Gyroscope-Sensor" rel="noopener" data-goatcounter-click="buy-eckstein-build">Eckstein</a> (genau diese Version mit Metallgehäuse), im offiziellen <a href="https://www.waveshare.com/esp32-s3-touch-lcd-1.28-b.htm" rel="noopener" data-goatcounter-click="buy-waveshare-build">Waveshare-Shop</a> oder bei einem seriösen Elektronikhändler – lieber keine Marktplatz-Angebote, die sind oft falsch beschriftet.',
+    'cap-board': 'Genau dieses: das -B im Metallgehäuse, so wie es aus der Packung kommt.',
+    'alt-board': 'Das runde Board im schwarzen Metallgehäuse auf einem Holztisch',
     twins: '<b>Vorsicht, Doppelgänger</b> – diese sehen fast gleich aus, gehen aber nicht:',
     'th-board': 'Board', 'th-why': 'Problem',
     tw1: 'kein WLAN – geht gar nicht',
@@ -120,7 +133,9 @@
     asm: 'Es gibt nichts zu verdrahten: Das -B-Board kommt fertig im Metallgehäuse, die USB-C-Buchse ist von außen erreichbar.',
     a2: 'Board auspacken, USB-C-Datenkabel einstecken, anderes Ende an den Computer.',
     a3: 'Das Board startet, sobald es Strom hat – es hat keinen Einschaltknopf. Was es jetzt zeigt (eine Hersteller-Demo), ist egal und wird gleich ersetzt.',
-    case: 'Du hast einen 3D-Drucker? Dann druck dir den <b>Moonwatcher Lander</b> – einen Ständer fürs Auge im Metallgehäuse, damit es noch besser auf dem Tisch steht: <a href="Moonwatcher_Lander_v1.3mf" download data-goatcounter-click="lander-download">herunterladen (3MF)</a>. Drucken in PLA oder PETG mit Stützen. Das USB-C-Kabel von unten durch den Ständer stecken, am Auge einstecken und das Auge einsetzen. Dafür reicht jedes USB-C-Kabel, auch ein reines Ladekabel – das Datenkabel brauchst du nur einmal, zum Installieren.',
+    case: 'Du hast einen 3D-Drucker? Dann druck dir den <b>Moonwatcher Lander</b> – einen Ständer fürs Auge im Metallgehäuse, damit es noch besser auf dem Tisch steht: <a href="Moonwatcher_Lander_v1.3mf" download data-goatcounter-click="lander-download">herunterladen (3MF)</a>. Drucken in PETG oder PLA, ohne Stützen (warnt Bambu Studio vor „schwebenden Regionen“, einfach ignorieren). Das USB-C-Kabel von unten durch den Ständer stecken, am Auge einstecken und das Auge einsetzen. Dafür reicht jedes USB-C-Kabel mit geradem Stecker, auch ein reines Ladekabel – das Datenkabel brauchst du nur einmal, zum Installieren. Steckergehäuse max. 12,5 × 7 mm und etwa 21 mm lang (ohne Metallteil), Kabel max. 5 mm dick. Winkelstecker passen nicht.',
+    'cap-lander': 'Der Lander von hinten: Das Kabel kommt unten durch den Ständer.',
+    'alt-lander': 'Der Lander von hinten: Das USB-Kabel läuft unten durch den Ständer zum Auge',
     eyecase: 'Für Bastler: Ein druckbares Gehäuse in Augenform ist unterwegs – dafür kommt das Board ohne Metallgehäuse zum Einsatz, und es braucht ein wenig Löten.',
     'fw-h': '4. Installieren und einrichten',
     fw: 'Den Rest erklärt die Installationsseite Schritt für Schritt: die Firmware direkt aus dem Browser aufs Board spielen, dann das Auge mit dem Handy ins WLAN bringen. Dauert etwa 10 Minuten.',
@@ -134,9 +149,11 @@
   };
   const EN = {};
   document.querySelectorAll('[data-t]').forEach(el => EN[el.dataset.t] = el.innerHTML);
+  document.querySelectorAll('[data-ta]').forEach(el => EN[el.dataset.ta] = el.alt);   // Bildbeschreibungen
   function setLang(l) {
     const d = l === 'de' ? DE : EN;
     document.querySelectorAll('[data-t]').forEach(el => { if (d[el.dataset.t]) el.innerHTML = d[el.dataset.t]; });
+    document.querySelectorAll('[data-ta]').forEach(el => { if (d[el.dataset.ta]) el.alt = d[el.dataset.ta]; });
     document.documentElement.lang = l;
     document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === l));
   }
