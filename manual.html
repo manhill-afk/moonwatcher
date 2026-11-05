@@ -15,6 +15,7 @@
   .top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
   h1 { font:700 30px/1.1 "Trebuchet MS",system-ui,sans-serif; margin:0; letter-spacing:-.01em; }
   h1 span { color:var(--gold); }
+  h1 a { color:inherit; text-decoration:none; }   /* Schriftzug = Link zur Startseite, sieht aus wie vorher */
   h2 { font:700 19px/1.2 "Trebuchet MS",system-ui,sans-serif; margin:0; }
   h3 { font:700 15px/1.3 system-ui,sans-serif; margin:4px 0 0; color:var(--gold); }
   .lang { display:inline-flex; border:1px solid var(--edge); border-radius:99px; overflow:hidden; }
@@ -40,7 +41,7 @@
 <body>
 <main>
   <div class="top">
-    <h1>Moon<span>watcher</span></h1>
+    <h1><a href="./">Moon<span>watcher</span></a></h1>
     <div class="lang"><button data-l="en" aria-pressed="true">EN</button><button data-l="de" aria-pressed="false">DE</button></div>
   </div>
   <p data-t="lead"><span class="k">The manual.</span> Moonwatcher is a round eye that shows you how the crypto market feels – no numbers needed. Here's how to read it and how to use it.</p>
