@@ -76,6 +76,8 @@
       <tr><td data-t="r14a">Golden eye</td><td data-t="r14b">Bitcoin halving day (before that, a countdown of the days)</td></tr>
       <!-- Wetter-Schnee (1.0.15, Hilli 16.11.2026): src/weather.cpp, Einstellung firmware/src/webui.cpp -->
       <tr><td data-t="r15a">Snow falling in the eye</td><td data-t="r15b">it is snowing outside in the city you set (November to March) – real weather, not a price signal. See <a href="#settings">settings</a>.</td></tr>
+      <!-- ISS-Ueberfluege (Hilli 16.11.2026): src/iss.cpp, Einstellung firmware/src/webui.cpp -->
+      <tr><td data-t="r16a">A bright point drifts across the sky, the eye follows it</td><td data-t="r16b">the International Space Station is passing over your city right now and can be seen outside. The eye announces it once (“in the west / ISS / 10 deg up”); a tap during the pass shows where to look. See <a href="#settings">settings</a>.</td></tr>
     </table>
     <p class="dim" data-t="rare">A few things happen only rarely or at special times. Let it surprise you.</p>
   </section>
@@ -158,7 +160,7 @@
     <p data-t="u-pow">The eye runs on any USB power adapter, e.g. a phone charger, via USB-C. It starts as soon as it gets power – there is no power button. For running, any USB-C cable will do; only installing the firmware needs a data cable.</p>
   </section>
 
-  <!-- Einstellungsseite am Code geprueft: firmware/src/webui.cpp (Stand 0.3.41; Wetter-Schnee s9: 1.0.15) -->
+  <!-- Einstellungsseite am Code geprueft: firmware/src/webui.cpp (Stand 0.3.41; Wetter-Schnee s9: 1.0.15; ISS s10: iss-Zweig) -->
   <section id="settings">
     <h2 data-t="set-h">4. The settings page</h2>
     <p data-t="set-open"><b>Open it:</b> your phone must be in the same Wi-Fi as the eye. On the eye, swipe up until it says <b>“Settings”</b> and hold your finger on it. Scan the QR code with your phone camera and tap the link. (The address is shown below the code; on a computer <b>http://moonwatcher.local</b> usually works too.) A tap closes the QR code.</p>
@@ -169,6 +171,7 @@
       <li data-t="s3"><b>Brightness</b> and <b>night dimming</b>: between two times of day the eye gets darker; a tap lights it up for 30 seconds. Things you start yourself (Moonball, demo, menu QR codes) stay bright. Same hour for “from” and “to” = always dimmed. Stars and sleep come regardless of the dimmer.</li>
       <li data-t="s4"><b>Clock in the eye</b>, <b>rotate display</b>, <b>demo mode</b> (the demo repeats endlessly, e.g. for a shop window), <b>Milky Way</b> in the night sky while the eye sleeps.</li>
       <li data-t="s9"><b>Snow when it snows outside</b> (on from the start): from November to March the eye asks the Norwegian weather service <b>MET Norway</b> about every 30 minutes for the weather in the city you set – only the city, never an address. If it snows there, it snows in the eye too: light, moderate or heavy. MET Norway sees your connection's IP address and the city's coordinates. Weather data: <a href="https://api.met.no/" rel="noopener">MET Norway</a>, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a> – the snow in the eye is derived from it.</li>
+      <li data-t="s10"><b>ISS in the sky when it passes over your city</b> (on from the start): when the International Space Station crosses the sky above your city and can be seen outside (it is dark there and the station is still in sunlight), it drifts across the eye's sky in real time – a pass takes four to six minutes – and the eye follows it with its gaze. Passes that climb higher than 20 degrees are announced once, while the eye is awake; a sleeping eye is not woken. For this the eye fetches the station's orbit from <a href="https://celestrak.org/" rel="noopener">CelesTrak</a> once a day – the request contains no location, the passes are worked out in the device.</li>
       <li data-t="s5"><b>Moonball:</b> difficulty (up to “cheater”), steering sensitivity, invert steering.</li>
       <li data-t="s6"><b>More coins:</b> pick another coin, or set a <b>watchlist</b> – the eye then switches between the ticked coins every few minutes. Switching off takes it back to the coin you picked yourself.</li>
       <li data-t="s7"><b>Price, “Below ATH” and the sparkle chart</b> (see above) – they update by themselves while the page is open.</li>
@@ -221,6 +224,7 @@
     r13a: 'Es schläft ein', r13b: 'spät in der Nacht, wenn der Markt ruhig ist',
     r14a: 'Goldenes Auge', r14b: 'Bitcoin-Halving-Tag (vorher ein Countdown der Tage)',
     r15a: 'Es schneit im Auge', r15b: 'draußen in der eingestellten Stadt schneit es (November bis März) – echtes Wetter, kein Kurssignal. Siehe <a href="#settings">Einstellungen</a>.',
+    r16a: 'Ein heller Punkt zieht über den Himmel, das Auge schaut ihm nach', r16b: 'die Internationale Raumstation fliegt gerade über deine Stadt und ist draußen zu sehen. Das Auge meldet sie einmal („im Westen / ISS / 10 Grad hoch“); Antippen während des Überflugs zeigt, wohin man schauen muss. Siehe <a href="#settings">Einstellungen</a>.',
     rare: 'Ein paar Dinge passieren nur selten oder zu besonderen Zeiten. Lass dich überraschen.',
     'sp-h': '2. Das Funkel-Diagramm, genau erklärt',
     'sp-p': 'Auf der Einstellungsseite gibt es ein kleines Diagramm. Es zeigt, <b>warum</b> das Auge funkelt – oder warum nicht.',
@@ -273,6 +277,7 @@
     s3: '<b>Helligkeit</b> und <b>Nachtdimmer</b>: Zwischen zwei Uhrzeiten wird das Auge dunkler; Antippen macht es für 30 Sekunden hell. Was du selbst startest (Moonball, Demo, QR-Codes aus dem Menü), bleibt hell. Gleiche Stunde bei „von“ und „bis“ = immer gedimmt. Sterne und Schlaf kommen unabhängig vom Dimmer.',
     s4: '<b>Uhr im Auge</b>, <b>Anzeige drehen</b>, <b>Demo-Modus</b> (die Demo läuft endlos, z. B. im Schaufenster), <b>Milchstraße</b> am Nachthimmel, während das Auge schläft.',
     s9: '<b>Schnee, wenn es draußen schneit</b> (ab Werk an): Von November bis März fragt das Auge etwa alle 30 Minuten den norwegischen Wetterdienst <b>MET Norway</b> nach dem Wetter in der eingestellten Stadt – nur die Stadt, nie eine Adresse. Schneit es dort, schneit es auch im Auge: leicht, mittel oder stark. MET Norway sieht dabei die IP-Adresse deines Anschlusses und die Koordinaten der Stadt. Wetterdaten: <a href="https://api.met.no/" rel="noopener">MET Norway</a>, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a> – der Schnee im Auge ist daraus abgeleitet.',
+    s10: '<b>ISS am Himmel, wenn sie über deine Stadt zieht</b> (ab Werk an): Fliegt die Internationale Raumstation über deine Stadt und ist draußen zu sehen (dort ist es dunkel, und die Station steht noch in der Sonne), zieht sie in Echtzeit über den Himmel des Auges – ein Überflug dauert vier bis sechs Minuten –, und das Auge schaut ihr nach. Überflüge, die höher als 20 Grad steigen, meldet es einmal, solange es wach ist; ein schlafendes Auge wird nicht geweckt. Dafür holt das Auge einmal am Tag die Bahndaten der Station von <a href="https://celestrak.org/" rel="noopener">CelesTrak</a> – die Anfrage enthält keinen Ort, die Überflüge rechnet das Gerät selbst aus.',
     s5: '<b>Moonball:</b> Schwierigkeit (bis „Schummler“), Lenk-Empfindlichkeit, Lenkrichtung umkehren.',
     s6: '<b>Weitere Coins:</b> einen anderen Coin wählen oder eine <b>Watchlist</b> setzen – das Auge wechselt dann alle paar Minuten zwischen den angehakten Coins. Wechsel aus bringt es zurück zu dem Coin, den du selbst gewählt hast.',
     s7: '<b>Kurs, „Unter ATH“ und das Funkel-Diagramm</b> (siehe oben) – sie aktualisieren sich von selbst, solange die Seite offen ist.',
