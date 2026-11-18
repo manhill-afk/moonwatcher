@@ -73,7 +73,8 @@
       <tr><td data-t="r11a">Stars in the sky</td><td data-t="r11b">it is dark outside – the real night sky above the place you set, not a price signal</td></tr>
       <tr><td data-t="r12a">The moon</td><td data-t="r12b">the real moon, phase and position as outside – not a price signal</td></tr>
       <tr><td data-t="r13a">It falls asleep</td><td data-t="r13b">late at night when the market is quiet</td></tr>
-      <tr><td data-t="r14a">Golden eye</td><td data-t="r14b">Bitcoin halving day (before that, a countdown of the days)</td></tr>
+      <!-- Halving-Countdown (1.0.18, Hilli 17.11.2026): firmware/src/main.cpp firstTapOfDay, src/halving_ms.h -->
+      <tr><td data-t="r14a">Golden eye</td><td data-t="r14b">Bitcoin halving day. Before that it counts down the days: at start-up, on a few special days, and in the last 100 days once a day – at the first tap, then the price follows.</td></tr>
       <!-- Wetter-Schnee (1.0.15, Hilli 16.11.2026): src/weather.cpp, Einstellung firmware/src/webui.cpp -->
       <tr><td data-t="r15a">Snow falling in the eye</td><td data-t="r15b">it is snowing outside in the city you set (November to March) – real weather, not a price signal. See <a href="#settings">settings</a>.</td></tr>
       <!-- ISS-Ueberfluege (Hilli 16.11.2026): src/iss.cpp, Einstellung firmware/src/webui.cpp -->
@@ -222,7 +223,7 @@
     r11a: 'Sterne am Himmel', r11b: 'draußen ist es dunkel – der echte Nachthimmel über deinem eingestellten Ort, kein Kurssignal',
     r12a: 'Der Mond', r12b: 'der echte Mond, Phase und Stand wie draußen – kein Kurssignal',
     r13a: 'Es schläft ein', r13b: 'spät in der Nacht, wenn der Markt ruhig ist',
-    r14a: 'Goldenes Auge', r14b: 'Bitcoin-Halving-Tag (vorher ein Countdown der Tage)',
+    r14a: 'Goldenes Auge', r14b: 'Bitcoin-Halving-Tag. Vorher zählt es die Tage herunter: beim Start, an ein paar besonderen Tagen und in den letzten 100 Tagen einmal am Tag – beim ersten Antippen, danach kommt der Kurs.',
     r15a: 'Es schneit im Auge', r15b: 'draußen in der eingestellten Stadt schneit es (November bis März) – echtes Wetter, kein Kurssignal. Siehe <a href="#settings">Einstellungen</a>.',
     r16a: 'Ein heller Punkt zieht über den Himmel, das Auge schaut ihm nach', r16b: 'die Internationale Raumstation fliegt gerade über deine Stadt und ist draußen zu sehen. Das Auge meldet sie einmal („im Westen / ISS / 10 Grad hoch“); Antippen während des Überflugs zeigt, wohin man schauen muss. Siehe <a href="#settings">Einstellungen</a>.',
     rare: 'Ein paar Dinge passieren nur selten oder zu besonderen Zeiten. Lass dich überraschen.',
