@@ -145,6 +145,7 @@
     <table>
       <tr><td>Demo</td><td data-t="m1">shows everything the eye can do; a tap ends it</td></tr>
       <tr><td>Moonball</td><td data-t="m2">a little game against the eye: after 3-2-1, turn the whole device like a steering wheel or steer with your finger; swipe up = end. The eye is a sore loser.</td></tr>
+      <tr><td>Sat Stacker</td><td data-t="m2s">the eye turns into a glass marble: hold the device comfortably during 3-2-1 (that pose counts as level), then tilt it and roll over golden sats. Now and then black holes open and pull you in – get too close and you fall through. 60 seconds, your record is kept; swipe up = end. The further Bitcoin is below its high, the more the field sparkles – the market decides how hard it gets.</td></tr>
       <tr><td data-t="m3a">Clock</td><td data-t="m3">clock in the eye on/off: hands as glowing iris fibres, a dial made of stars</td></tr>
       <tr><td data-t="m4a">Rotate</td><td data-t="m4">turns the picture by 90° – if the board sits differently in a stand or case</td></tr>
       <tr><td>Settings</td><td data-t="m5">shows a QR code to the settings page (see below)</td></tr>
@@ -174,6 +175,7 @@
       <li data-t="s9"><b>Snow when it snows outside</b> (on from the start): from November to March the eye asks the Norwegian weather service <b>MET Norway</b> about every 30 minutes for the weather in the city you set – only the city, never an address. If it snows there, it snows in the eye too: light, moderate or heavy. MET Norway sees your connection's IP address and the city's coordinates. Weather data: <a href="https://api.met.no/" rel="noopener">MET Norway</a>, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a> – the snow in the eye is derived from it.</li>
       <li data-t="s10"><b>ISS in the sky when it passes over your city</b> (on from the start): when the International Space Station crosses the sky above your city and can be seen outside (it is dark there and the station is still in sunlight), it drifts across the eye's sky in real time – a pass takes four to six minutes – and the eye follows it with its gaze. Passes that climb higher than 20 degrees are announced once, while the eye is awake; a sleeping eye is not woken. For this the eye fetches the station's orbit from <a href="https://celestrak.org/" rel="noopener">CelesTrak</a> once a day – the request contains no location, the passes are worked out in the device.</li>
       <li data-t="s5"><b>Moonball:</b> difficulty (up to “cheater”), steering sensitivity, invert steering.</li>
+      <li data-t="s5s"><b>Sat Stacker:</b> tilt sensitivity; your record, and a button to delete it.</li>
       <li data-t="s6"><b>More coins:</b> pick another coin, or set a <b>watchlist</b> – the eye then switches between the ticked coins every few minutes. Switching off takes it back to the coin you picked yourself.</li>
       <li data-t="s7"><b>Price, “Below ATH” and the sparkle chart</b> (see above) – they update by themselves while the page is open.</li>
       <li data-t="s8"><b>Language</b> (English / Deutsch) at the top.</li>
@@ -259,6 +261,7 @@
     'u-menu-p': 'Das Auge startet auf Englisch; auf Deutsch umstellen geht auf der Einstellungsseite. In Klammern die deutschen Namen.',
     m1: 'zeigt alles, was das Auge kann; Antippen beendet sie',
     m2: 'ein kleines Spiel gegen das Auge: nach 3-2-1 das ganze Gerät wie ein Lenkrad drehen oder mit dem Finger steuern; nach oben wischen = Ende. Das Auge ist ein schlechter Verlierer.',
+    m2s: 'das Auge wird zur Glasmurmel: beim 3-2-1 das Gerät bequem halten (diese Lage gilt als waagerecht), dann kippen und über goldene Sats rollen. Ab und zu öffnen sich Schwarze Löcher und ziehen dich an – kommst du zu nah, fällst du hindurch. 60 Sekunden, dein Rekord bleibt; nach oben wischen = Ende. Je tiefer Bitcoin unter seinem Hoch steht, desto mehr funkelt das Spielfeld – der Markt bestimmt mit, wie schwer es wird.',
     m3a: 'Clock (Uhr)', m3: 'Uhr im Auge an/aus: Zeiger als leuchtende Irisfasern, Ziffernblatt aus Sternen',
     m4a: 'Rotate (Drehen)', m4: 'dreht das Bild um 90° – falls das Board anders in einem Ständer oder Gehäuse sitzt',
     m5: 'zeigt einen QR-Code zur Einstellungsseite (siehe unten)',
@@ -280,6 +283,7 @@
     s9: '<b>Schnee, wenn es draußen schneit</b> (ab Werk an): Von November bis März fragt das Auge etwa alle 30 Minuten den norwegischen Wetterdienst <b>MET Norway</b> nach dem Wetter in der eingestellten Stadt – nur die Stadt, nie eine Adresse. Schneit es dort, schneit es auch im Auge: leicht, mittel oder stark. MET Norway sieht dabei die IP-Adresse deines Anschlusses und die Koordinaten der Stadt. Wetterdaten: <a href="https://api.met.no/" rel="noopener">MET Norway</a>, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a> – der Schnee im Auge ist daraus abgeleitet.',
     s10: '<b>ISS am Himmel, wenn sie über deine Stadt zieht</b> (ab Werk an): Fliegt die Internationale Raumstation über deine Stadt und ist draußen zu sehen (dort ist es dunkel, und die Station steht noch in der Sonne), zieht sie in Echtzeit über den Himmel des Auges – ein Überflug dauert vier bis sechs Minuten –, und das Auge schaut ihr nach. Überflüge, die höher als 20 Grad steigen, meldet es einmal, solange es wach ist; ein schlafendes Auge wird nicht geweckt. Dafür holt das Auge einmal am Tag die Bahndaten der Station von <a href="https://celestrak.org/" rel="noopener">CelesTrak</a> – die Anfrage enthält keinen Ort, die Überflüge rechnet das Gerät selbst aus.',
     s5: '<b>Moonball:</b> Schwierigkeit (bis „Schummler“), Lenk-Empfindlichkeit, Lenkrichtung umkehren.',
+    s5s: '<b>Sat Stacker:</b> Kipp-Empfindlichkeit; dein Rekord und ein Knopf, um ihn zu löschen.',
     s6: '<b>Weitere Coins:</b> einen anderen Coin wählen oder eine <b>Watchlist</b> setzen – das Auge wechselt dann alle paar Minuten zwischen den angehakten Coins. Wechsel aus bringt es zurück zu dem Coin, den du selbst gewählt hast.',
     s7: '<b>Kurs, „Unter ATH“ und das Funkel-Diagramm</b> (siehe oben) – sie aktualisieren sich von selbst, solange die Seite offen ist.',
     s8: '<b>Sprache</b> (English / Deutsch) ganz oben.',
