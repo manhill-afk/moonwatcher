@@ -79,6 +79,9 @@
       <tr><td data-t="r15a">Snow falling in the eye</td><td data-t="r15b">it is snowing outside in the city you set (November to March) – real weather, not a price signal. See <a href="#settings">settings</a>.</td></tr>
       <!-- ISS-Ueberfluege (Hilli 16.11.2026): src/iss.cpp, Einstellung firmware/src/webui.cpp -->
       <tr><td data-t="r16a">A bright point drifts across the sky, the eye follows it</td><td data-t="r16b">the International Space Station is passing over your city right now and can be seen outside. The eye announces it once (“in the west / ISS / 10 deg up”); a tap during the pass shows where to look. See <a href="#settings">settings</a>.</td></tr>
+      <!-- Zwei Augen + Augenart (1.0.31, Hilli 22.-24.11.2026): firmware/src/main.cpp twoEyesUpdate, Eye::setCat -->
+      <tr><td data-t="r17a">It looks to the side and winks</td><td data-t="r17b">another Moonwatcher stands next to it (“Eyes side by side”): they glance and wink at each other, a fright spreads along the row, and at night they fall asleep together. See <a href="#settings">settings</a>.</td></tr>
+      <tr><td data-t="r18a">A slit pupil like a cat</td><td data-t="r18b">the eye style “cat eye” is set. The pupil means exactly the same as the round one – only its shape is a cat's. See <a href="#settings">settings</a>.</td></tr>
     </table>
     <p class="dim" data-t="rare">A few things happen only rarely or at special times. Let it surprise you.</p>
   </section>
@@ -165,7 +168,8 @@
   <!-- Einstellungsseite am Code geprueft: firmware/src/webui.cpp (Stand 0.3.41; Wetter-Schnee s9: 1.0.15; ISS s10: iss-Zweig;
        Sat Stacker s5s + Menue m2s/u4: 1.0.26 - Stufen, Rekorde je Stufe, Wischen im Menue; das Auge heisst "das Auge",
        die Seifenblase nur als Vergleich - Hilli 20.11.2026, "Blase" klingt im Krypto-Umfeld nach Spekulationsblase;
-       m2s 1.0.27: Nullage in jeder Haltung, auch senkrecht im Staender - 3D-Steuerung, Handtest 21.11.2026) -->
+       m2s 1.0.27: Nullage in jeder Haltung, auch senkrecht im Staender - 3D-Steuerung, Handtest 21.11.2026;
+       Augenart s11 + Zwei Augen s12 + Hilfe h10: 1.0.31, webui.cpp "Eye style" / "Eyes side by side", peers.cpp ESP-NOW) -->
   <section id="settings">
     <h2 data-t="set-h">4. The settings page</h2>
     <p data-t="set-open"><b>Open it:</b> your phone must be in the same Wi-Fi as the eye. On the eye, swipe up until it says <b>“Settings”</b> and hold your finger on it. Scan the QR code with your phone camera and tap the link. (The address is shown below the code; on a computer <b>http://moonwatcher.local</b> usually works too.) A tap closes the QR code.</p>
@@ -173,12 +177,14 @@
     <ul>
       <li data-t="s1"><b>Currency</b> (EUR or USD) and <b>location</b> – for the time and the real night sky.</li>
       <li data-t="s2"><b>Personality:</b> calm, normal or nervous – how lively the eye moves.</li>
+      <li data-t="s11"><b>Eye style:</b> normal or <b>cat eye</b> – a slit pupil that means exactly the same as the round one: narrow in a calm market, wide in a wild one, wide open in the dark like a real cat's, round when it shows the price. The eye switches behind a blink.</li>
       <li data-t="s3"><b>Brightness</b> and <b>night dimming</b>: between two times of day the eye gets darker; a tap lights it up for 30 seconds. Things you start yourself (Moonball, demo, menu QR codes) stay bright. Same hour for “from” and “to” = always dimmed. Stars and sleep come regardless of the dimmer.</li>
       <li data-t="s4"><b>Clock in the eye</b>, <b>rotate display</b>, <b>demo mode</b> (the demo repeats endlessly, e.g. for a shop window), <b>Milky Way</b> in the night sky while the eye sleeps.</li>
       <li data-t="s9"><b>Snow when it snows outside</b> (on from the start): from November to March the eye asks the Norwegian weather service <b>MET Norway</b> about every 30 minutes for the weather in the city you set – only the city, never an address. If it snows there, it snows in the eye too: light, moderate or heavy. MET Norway sees your connection's IP address and the city's coordinates. Weather data: <a href="https://api.met.no/" rel="noopener">MET Norway</a>, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a> – the snow in the eye is derived from it.</li>
       <li data-t="s10"><b>ISS in the sky when it passes over your city</b> (on from the start): when the International Space Station crosses the sky above your city and can be seen outside (it is dark there and the station is still in sunlight), it drifts across the eye's sky in real time – a pass takes four to six minutes – and the eye follows it with its gaze. Passes that climb higher than 20 degrees are announced once, while the eye is awake; a sleeping eye is not woken. For this the eye fetches the station's orbit from <a href="https://celestrak.org/" rel="noopener">CelesTrak</a> once a day – the request contains no location, the passes are worked out in the device.</li>
       <li data-t="s5"><b>Moonball:</b> difficulty (up to “cheater”), steering sensitivity, invert steering.</li>
       <li data-t="s5s"><b>Sat Stacker:</b> difficulty (calm, drifting, wild), tilt sensitivity; your records for each level, and a button to delete them.</li>
+      <li data-t="s12"><b>Eyes side by side</b> (off from the start): if several Moonwatchers stand next to each other on the same Wi-Fi, give each a number from the left (1 = far left). Then they glance and wink at each other – and answer in their own mood –, a fright spreads along the row, now and then they have a staring contest, the others watch when you play Moonball or Sat Stacker on one of them, and at night a shooting star may fly from one eye into the next. They fall asleep together; wake one and the others wake up sleepily too. The eyes talk to each other directly by radio – no internet, nothing leaves your home. “off” = this eye doesn't take part.</li>
       <li data-t="s6"><b>More coins:</b> pick another coin, or set a <b>watchlist</b> – the eye then switches between the ticked coins every few minutes. Switching off takes it back to the coin you picked yourself.</li>
       <li data-t="s7"><b>Price, “Below ATH” and the sparkle chart</b> (see above) – they update by themselves while the page is open.</li>
       <li data-t="s8"><b>Language</b> (English / Deutsch) at the top.</li>
@@ -196,6 +202,7 @@
       <li data-t="h5"><b>Picture upside down or sideways:</b> menu → Rotate.</li>
       <li data-t="h7"><b>Your Wi-Fi doesn't show up or won't connect:</b> the eye only knows <b>2.4 GHz</b> Wi-Fi (take the network without “5G” in its name). Routers set to <b>WPA3 only</b> need the mixed mode “WPA2/WPA3”. Hotel or company Wi-Fi with a login page doesn't work.</li>
       <li data-t="h8"><b>The eye runs, but the settings page won't open:</b> your phone has to be in the same Wi-Fi as the eye – not on mobile data, not in a different network. In a <b>guest Wi-Fi</b> the devices can't see each other: the eye still works, but you can't reach its settings page. Better use your normal home Wi-Fi.</li>
+      <li data-t="h10"><b>Eyes side by side don't react to each other:</b> each needs a number (not “off”), and all must be on the same Wi-Fi. Under “Eyes side by side” the settings page shows which other eyes it hears (“Found: position …”).</li>
       <li data-t="h9"><b>iPhone during setup:</b> don't tap “Done” in the setup window before you have saved your Wi-Fi – otherwise it closes too early. If that happens, just scan the eye's QR code again.</li>
       <li data-t="h6"><b>Something strange happened?</b> On the settings page open <b>“Diagnostics”</b> at the bottom and tap <b>“Send a report to the developer”</b> – it includes the log of what the device went through. That helps a lot.</li>
     </ul>
@@ -231,6 +238,8 @@
     r14a: 'Goldenes Auge', r14b: 'Bitcoin-Halving-Tag. Vorher zählt es die Tage herunter: beim Start, an ein paar besonderen Tagen und in den letzten 100 Tagen einmal am Tag – beim ersten Antippen, danach kommt der Kurs.',
     r15a: 'Es schneit im Auge', r15b: 'draußen in der eingestellten Stadt schneit es (November bis März) – echtes Wetter, kein Kurssignal. Siehe <a href="#settings">Einstellungen</a>.',
     r16a: 'Ein heller Punkt zieht über den Himmel, das Auge schaut ihm nach', r16b: 'die Internationale Raumstation fliegt gerade über deine Stadt und ist draußen zu sehen. Das Auge meldet sie einmal („im Westen / ISS / 10 Grad hoch“); Antippen während des Überflugs zeigt, wohin man schauen muss. Siehe <a href="#settings">Einstellungen</a>.',
+    r17a: 'Es schaut zur Seite und zwinkert', r17b: 'ein anderer Moonwatcher steht daneben („Zwei Augen“): Sie schauen sich an und zwinkern sich zu, ein Schreck wandert durch die Reihe, und nachts schlafen sie zusammen ein. Siehe <a href="#settings">Einstellungen</a>.',
+    r18a: 'Eine Schlitzpupille wie bei einer Katze', r18b: 'die Augenart „Katzenauge“ ist eingestellt. Die Pupille bedeutet genau dasselbe wie die runde – nur ihre Form ist die einer Katze. Siehe <a href="#settings">Einstellungen</a>.',
     rare: 'Ein paar Dinge passieren nur selten oder zu besonderen Zeiten. Lass dich überraschen.',
     'sp-h': '2. Das Funkel-Diagramm, genau erklärt',
     'sp-p': 'Auf der Einstellungsseite gibt es ein kleines Diagramm. Es zeigt, <b>warum</b> das Auge funkelt – oder warum nicht.',
@@ -281,12 +290,14 @@
     'set-what': 'Was du dort einstellen kannst:',
     s1: '<b>Währung</b> (EUR oder USD) und <b>Ort</b> – für die Uhrzeit und den echten Nachthimmel.',
     s2: '<b>Charakter:</b> ruhig, normal oder nervös – wie lebhaft sich das Auge bewegt.',
+    s11: '<b>Augenart:</b> normal oder <b>Katzenauge</b> – eine Schlitzpupille, die genau dasselbe bedeutet wie die runde: eng bei ruhigem Markt, weit bei wildem, im Dunkeln weit offen wie bei einer echten Katze, rund, wenn sie den Kurs zeigt. Gewechselt wird hinter einem Blinzeln.',
     s3: '<b>Helligkeit</b> und <b>Nachtdimmer</b>: Zwischen zwei Uhrzeiten wird das Auge dunkler; Antippen macht es für 30 Sekunden hell. Was du selbst startest (Moonball, Demo, QR-Codes aus dem Menü), bleibt hell. Gleiche Stunde bei „von“ und „bis“ = immer gedimmt. Sterne und Schlaf kommen unabhängig vom Dimmer.',
     s4: '<b>Uhr im Auge</b>, <b>Anzeige drehen</b>, <b>Demo-Modus</b> (die Demo läuft endlos, z. B. im Schaufenster), <b>Milchstraße</b> am Nachthimmel, während das Auge schläft.',
     s9: '<b>Schnee, wenn es draußen schneit</b> (ab Werk an): Von November bis März fragt das Auge etwa alle 30 Minuten den norwegischen Wetterdienst <b>MET Norway</b> nach dem Wetter in der eingestellten Stadt – nur die Stadt, nie eine Adresse. Schneit es dort, schneit es auch im Auge: leicht, mittel oder stark. MET Norway sieht dabei die IP-Adresse deines Anschlusses und die Koordinaten der Stadt. Wetterdaten: <a href="https://api.met.no/" rel="noopener">MET Norway</a>, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a> – der Schnee im Auge ist daraus abgeleitet.',
     s10: '<b>ISS am Himmel, wenn sie über deine Stadt zieht</b> (ab Werk an): Fliegt die Internationale Raumstation über deine Stadt und ist draußen zu sehen (dort ist es dunkel, und die Station steht noch in der Sonne), zieht sie in Echtzeit über den Himmel des Auges – ein Überflug dauert vier bis sechs Minuten –, und das Auge schaut ihr nach. Überflüge, die höher als 20 Grad steigen, meldet es einmal, solange es wach ist; ein schlafendes Auge wird nicht geweckt. Dafür holt das Auge einmal am Tag die Bahndaten der Station von <a href="https://celestrak.org/" rel="noopener">CelesTrak</a> – die Anfrage enthält keinen Ort, die Überflüge rechnet das Gerät selbst aus.',
     s5: '<b>Moonball:</b> Schwierigkeit (bis „Schummler“), Lenk-Empfindlichkeit, Lenkrichtung umkehren.',
     s5s: '<b>Sat Stacker:</b> Schwierigkeit (ruhig, treibend, wild), Kipp-Empfindlichkeit; deine Rekorde je Stufe und ein Knopf, um sie zu löschen.',
+    s12: '<b>Zwei Augen</b> (ab Werk aus): Stehen mehrere Moonwatcher im selben WLAN nebeneinander, gib jedem eine Nummer von links (1 = ganz links). Dann schauen sie sich an und zwinkern sich zu – und antworten jeweils nach Laune –, ein Schreck wandert durch die Reihe, ab und zu gibt es ein Anstarr-Duell, die anderen schauen zu, wenn du auf einem Moonball oder Sat Stacker spielst, und nachts fliegt auch mal eine Sternschnuppe von einem Auge ins nächste. Sie schlafen zusammen ein; weckst du eins, wachen die anderen verschlafen mit auf. Die Augen sprechen direkt per Funk miteinander – kein Internet, nichts verlässt dein Zuhause. „aus“ = dieses Auge macht nicht mit.',
     s6: '<b>Weitere Coins:</b> einen anderen Coin wählen oder eine <b>Watchlist</b> setzen – das Auge wechselt dann alle paar Minuten zwischen den angehakten Coins. Wechsel aus bringt es zurück zu dem Coin, den du selbst gewählt hast.',
     s7: '<b>Kurs, „Unter ATH“ und das Funkel-Diagramm</b> (siehe oben) – sie aktualisieren sich von selbst, solange die Seite offen ist.',
     s8: '<b>Sprache</b> (English / Deutsch) ganz oben.',
@@ -299,6 +310,7 @@
     h5: '<b>Bild steht auf dem Kopf oder seitlich:</b> Menü → Rotate (Drehen).',
     h7: '<b>Dein WLAN erscheint nicht oder verbindet nicht:</b> Das Auge kennt nur <b>2,4-GHz</b>-WLAN (nimm das Netz ohne „5G“ im Namen). Steht der Router auf <b>nur WPA3</b>, braucht es den Mischmodus „WPA2/WPA3“. Hotel- oder Firmen-WLAN mit Anmeldeseite geht nicht.',
     h8: '<b>Das Auge läuft, aber die Einstellungsseite öffnet sich nicht:</b> Dein Handy muss im selben WLAN sein wie das Auge – nicht in mobilen Daten, nicht in einem anderen Netz. Im <b>Gäste-WLAN</b> sehen sich die Geräte nicht: Das Auge läuft trotzdem, aber an seine Einstellungsseite kommst du nicht. Nimm besser dein normales Heim-WLAN.',
+    h10: '<b>Zwei Augen reagieren nicht aufeinander:</b> Jedes braucht eine Nummer (nicht „aus“), und alle müssen im selben WLAN sein. Unter „Zwei Augen“ zeigt die Einstellungsseite, welche anderen Augen es hört („Gefunden: Position …“).',
     h9: '<b>iPhone beim Einrichten:</b> Im Einrichtungsfenster nicht auf „Fertig“ tippen, bevor dein WLAN gespeichert ist – sonst schließt es zu früh. Passiert es doch: einfach den QR-Code am Auge nochmal scannen.',
     h6: '<b>Etwas Seltsames passiert?</b> Auf der Einstellungsseite ganz unten <b>„Diagnose“</b> aufklappen und <b>„Bericht an den Entwickler schreiben“</b> antippen – darin steht das Protokoll, was das Gerät erlebt hat. Das hilft sehr.',
     'h-mail': 'Fragen oder Ideen: <a href="mailto:moonwatcher@funktronix.de?subject=Moonwatcher" data-goatcounter-click="manual-mail">moonwatcher@funktronix.de</a>',
